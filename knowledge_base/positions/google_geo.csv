@@ -1,0 +1,704 @@
+Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
+1000002,Kabul,"Kabul,Afghanistan",2004,AF,City,Active
+1000003,Luanda,"Luanda,Luanda Province,Angola",9070431,AO,City,Active
+1000004,The Valley,"The Valley,Anguilla",2660,AI,City,Active
+1000010,Abu Dhabi,"Abu Dhabi,Abu Dhabi,United Arab Emirates",9041082,AE,City,Active
+1000011,Ajman,"Ajman,Ajman,United Arab Emirates",9047096,AE,City,Active
+1000012,Al Ain,"Al Ain,Abu Dhabi,United Arab Emirates",9041082,AE,City,Active
+1000013,Dubai,"Dubai,Dubai,United Arab Emirates",9041083,AE,City,Active
+1000014,Ras Al-Khaimah,"Ras Al-Khaimah,North Ras Al Khaimah,United Arab Emirates",9047098,AE,City,Active
+1000018,Salta,"Salta,Salta Province,Argentina",20008,AR,City,Active
+1000021,Avellaneda,"Avellaneda,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000024,Bahia Blanca,"Bahia Blanca,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000025,Balcarce,"Balcarce,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000027,Brandsen,"Brandsen,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000028,Campana,"Campana,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000029,Chacabuco,"Chacabuco,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000030,Colon,"Colon,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000031,Del Viso,"Del Viso,Pilar,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000035,Isidro Casanova,"Isidro Casanova,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000036,Junin,"Junin,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000037,La Plata,"La Plata,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000039,Lomas de Zamora,"Lomas de Zamora,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000040,Luis Guillon,"Luis Guillon,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000041,Lujan,"Lujan,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000042,Mar del Plata,"Mar del Plata,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000044,Moron,"Moron,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000045,Olavarria,"Olavarria,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000047,Pergamino,"Pergamino,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000050,Pinamar,"Pinamar,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000053,Quilmes,"Quilmes,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000058,San Antonio de Padua,"San Antonio de Padua,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000059,San Fernando,"San Fernando,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000060,San Isidro,"San Isidro,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000062,San Nicolas de los Arroyos,"San Nicolas de los Arroyos,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000063,San Pedro,"San Pedro,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000065,Tandil,"Tandil,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000066,Tortuguitas,"Tortuguitas,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000067,Trenque Lauquen,"Trenque Lauquen,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000069,Vicente Lopez,"Vicente Lopez,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000070,Villa Gesell,"Villa Gesell,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000072,Zarate,"Zarate,Buenos Aires Province,Argentina",20009,AR,City,Active
+1000073,Buenos Aires,"Buenos Aires,Buenos Aires,Argentina",20010,AR,City,Active
+1000075,Concepcion del Uruguay,"Concepcion del Uruguay,Entre Rios,Argentina",20011,AR,City,Active
+1000077,Gualeguaychu,"Gualeguaychu,Entre Rios,Argentina",20011,AR,City,Active
+1000078,Parana,"Parana,Entre Rios,Argentina",20011,AR,City,Active
+1000080,La Rioja,"La Rioja,La Rioja Province,Argentina",20012,AR,City,Active
+1000081,Santiago del Estero,"Santiago del Estero,Santiago del Estero Province,Argentina",21298,AR,City,Active
+1000082,Resistencia,"Resistencia,Chaco Province,Argentina",20013,AR,City,Active
+1000083,Roque Saenz Pena,"Roque Saenz Pena,Santa Fe Province,Argentina",20021,AR,City,Active
+1000085,San Juan,"San Juan,San Juan Province,Argentina",20014,AR,City,Active
+1000086,Catamarca,"Catamarca,Catamarca Province,Argentina",20015,AR,City,Active
+1000088,General Pico,"General Pico,La Pampa Province,Argentina",20016,AR,City,Active
+1000089,Santa Rosa,"Santa Rosa,La Pampa Province,Argentina",20016,AR,City,Active
+1000092,Mendoza,"Mendoza,Mendoza Province,Argentina",20017,AR,City,Active
+1000094,San Martin,"San Martin,Mendoza Province,Argentina",20017,AR,City,Active
+1000095,San Rafael,"San Rafael,Mendoza Province,Argentina",20017,AR,City,Active
+1000096,Posadas,"Posadas,Misiones Province,Argentina",20018,AR,City,Active
+1000097,Formosa,"Formosa,Formosa Province,Argentina",21299,AR,City,Active
+1000099,Neuquen,"Neuquen,Neuquen,Argentina",20019,AR,City,Active
+1000100,San Martin de los Andes,"San Martin de los Andes,Neuquen,Argentina",20019,AR,City,Active
+1000104,San Carlos de Bariloche,"San Carlos de Bariloche,Rio Negro,Argentina",20020,AR,City,Active
+1000105,Viedma,"Viedma,Rio Negro,Argentina",20020,AR,City,Active
+1000108,Rafaela,"Rafaela,Santa Fe Province,Argentina",20021,AR,City,Active
+1000109,Rosario,"Rosario,Santa Fe Province,Argentina",20021,AR,City,Active
+1000112,Santa Fe,"Santa Fe,Santa Fe Province,Argentina",20021,AR,City,Active
+1000114,Venado Tuerto,"Venado Tuerto,Santa Fe Province,Argentina",20021,AR,City,Active
+1000115,Villa Constitucion,"Villa Constitucion,Santa Fe Province,Argentina",20021,AR,City,Active
+1000116,San Miguel de Tucuman,"San Miguel de Tucuman,Tucuman,Argentina",20022,AR,City,Active
+1000117,Comodoro Rivadavia,"Comodoro Rivadavia,Chubut Province,Argentina",20023,AR,City,Active
+1000119,Puerto Madryn,"Puerto Madryn,Chubut Province,Argentina",20023,AR,City,Active
+1000121,Rio Grande,"Rio Grande,Tierra del Fuego Province,Argentina",20024,AR,City,Active
+1000122,Ushuaia,"Ushuaia,Tierra del Fuego Province,Argentina",20024,AR,City,Active
+1000123,Corrientes,"Corrientes,Corrientes Province,Argentina",20025,AR,City,Active
+1000126,Cordoba,"Cordoba,Cordoba,Argentina",20026,AR,City,Active
+1000128,Rio Cuarto,"Rio Cuarto,Cordoba,Argentina",20026,AR,City,Active
+1000129,San Francisco,"San Francisco,Cordoba,Argentina",20026,AR,City,Active
+1000130,Villa Maria,"Villa Maria,Cordoba,Argentina",20026,AR,City,Active
+1000133,Jujuy,"Jujuy,Jujuy,Argentina",20027,AR,City,Active
+1000134,Caleta Olivia,"Caleta Olivia,Santa Cruz Province,Argentina",20028,AR,City,Active
+1000135,Rio Gallegos,"Rio Gallegos,Santa Cruz Province,Argentina",20028,AR,City,Active
+1000138,Saint John's,"Saint John's,Antigua and Barbuda",2028,AG,City,Active
+1000142,Canberra,"Canberra,Australian Capital Territory,Australia",20034,AU,City,Active
+1000144,Barwon Downs,"Barwon Downs,Victoria,Australia",20040,AU,City,Active
+1000148,Albury,"Albury,New South Wales,Australia",20035,AU,City,Active
+1000149,Armidale,"Armidale,New South Wales,Australia",20035,AU,City,Active
+1000152,Ballina,"Ballina,New South Wales,Australia",20035,AU,City,Active
+1000156,Batemans Bay,"Batemans Bay,New South Wales,Australia",20035,AU,City,Active
+1000157,Bathurst,"Bathurst,New South Wales,Australia",20035,AU,City,Active
+1000170,Broken Hill,"Broken Hill,New South Wales,Australia",20035,AU,City,Active
+1000173,Cessnock,"Cessnock,New South Wales,Australia",20035,AU,City,Active
+1000184,Coffs Harbour,"Coffs Harbour,New South Wales,Australia",20035,AU,City,Active
+1000200,Dubbo,"Dubbo,New South Wales,Australia",20035,AU,City,Active
+1000211,Goulburn,"Goulburn,New South Wales,Australia",20035,AU,City,Active
+1000212,Grafton,"Grafton,New South Wales,Australia",20035,AU,City,Active
+1000213,Griffith,"Griffith,New South Wales,Australia",20035,AU,City,Active
+1000225,Kiama,"Kiama,New South Wales,Australia",20035,AU,City,Active
+1000226,Victoria Point,"Victoria Point,Queensland,Australia",20037,AU,City,Active
+1000227,Katoomba,"Katoomba,New South Wales,Australia",20035,AU,City,Active
+1000233,Lismore,"Lismore,New South Wales,Australia",20035,AU,City,Active
+1000234,Lithgow,"Lithgow,New South Wales,Australia",20035,AU,City,Active
+1000236,Maitland,"Maitland,New South Wales,Australia",20035,AU,City,Active
+1000246,Craigieburn,"Craigieburn,Victoria,Australia",20040,AU,City,Active
+1000250,Muswellbrook,"Muswellbrook,New South Wales,Australia",20035,AU,City,Active
+1000255,Newcastle,"Newcastle,New South Wales,Australia",20035,AU,City,Active
+1000259,Nowra,"Nowra,New South Wales,Australia",20035,AU,City,Active
+1000262,Orange,"Orange,New South Wales,Australia",20035,AU,City,Active
+1000264,Parkes,"Parkes,New South Wales,Australia",20035,AU,City,Active
+1000269,Port Macquarie,"Port Macquarie,New South Wales,Australia",20035,AU,City,Active
+1000274,Raymond Terrace,"Raymond Terrace,New South Wales,Australia",20035,AU,City,Active
+1000278,Richmond,"Richmond,New South Wales,Australia",20035,AU,City,Active
+1000281,Sawtell,"Sawtell,New South Wales,Australia",20035,AU,City,Active
+1000284,Singleton,"Singleton,New South Wales,Australia",20035,AU,City,Active
+1000286,Sydney,"Sydney,New South Wales,Australia",20035,AU,City,Active
+1000287,Tamworth,"Tamworth,New South Wales,Australia",20035,AU,City,Active
+1000288,Taree,"Taree,New South Wales,Australia",20035,AU,City,Active
+1000304,Wagga Wagga,"Wagga Wagga,New South Wales,Australia",20035,AU,City,Active
+1000314,Wollongong,"Wollongong,New South Wales,Australia",20035,AU,City,Active
+1000320,Alice Springs,"Alice Springs,Northern Territory,Australia",20036,AU,City,Active
+1000322,Darwin,"Darwin,Northern Territory,Australia",20036,AU,City,Active
+1000336,Bongaree,"Bongaree,Queensland,Australia",20037,AU,City,Active
+1000339,Brisbane,"Brisbane,Queensland,Australia",20037,AU,City,Active
+1000341,Buderim,"Buderim,Queensland,Australia",20037,AU,City,Active
+1000342,Bundaberg,"Bundaberg,Queensland,Australia",20037,AU,City,Active
+1000346,Caboolture,"Caboolture,Caboolture,Queensland,Australia",20037,AU,City,Active
+1000347,Cairns,"Cairns,Queensland,Australia",20037,AU,City,Active
+1000348,Caloundra,"Caloundra,Queensland,Australia",20037,AU,City,Active
+1000358,Dalby,"Dalby,Queensland,Australia",20037,AU,City,Active
+1000364,Gladstone,"Gladstone,Queensland,Australia",20037,AU,City,Active
+1000366,Gympie,"Gympie,Queensland,Australia",20037,AU,City,Active
+1000376,Kingston,"Kingston,Tasmania,Australia",20039,AU,City,Active
+1000377,Kawana,"Kawana,Queensland,Australia",20037,AU,City,Active
+1000380,Mackay,"Mackay,Queensland,Australia",20037,AU,City,Active
+1000382,Maroochydore,"Maroochydore,Queensland,Australia",20037,AU,City,Active
+1000383,Maryborough,"Maryborough,Queensland,Australia",20037,AU,City,Active
+1000388,Mount Isa,"Mount Isa,Queensland,Australia",20037,AU,City,Active
+1000390,Nambour,"Nambour,Queensland,Australia",20037,AU,City,Active
+1000392,Nerang,"Nerang,Queensland,Australia",20037,AU,City,Active
+1000401,Redcliffe,"Redcliffe,Redcliffe,Queensland,Australia",20037,AU,City,Active
+1000404,Rockhampton,"Rockhampton,Queensland,Australia",20037,AU,City,Active
+1000412,Toowoomba,"Toowoomba,Queensland,Australia",20037,AU,City,Active
+1000414,Townsville,"Townsville,Queensland,Australia",20037,AU,City,Active
+1000415,Warwick,"Warwick,Queensland,Australia",20037,AU,City,Active
+1000422,Adelaide,"Adelaide,South Australia,Australia",20038,AU,City,Active
+1000438,Gawler,"Gawler,South Australia,Australia",20038,AU,City,Active
+1000449,Mount Gambier,"Mount Gambier,South Australia,Australia",20038,AU,City,Active
+1000450,Murray Bridge,"Murray Bridge,South Australia,Australia",20038,AU,City,Active
+1000456,Port Augusta,"Port Augusta,South Australia,Australia",20038,AU,City,Active
+1000457,Port Lincoln,"Port Lincoln,South Australia,Australia",20038,AU,City,Active
+1000458,Port Pirie,"Port Pirie,South Australia,Australia",20038,AU,City,Active
+1000469,Whyalla,"Whyalla,South Australia,Australia",20038,AU,City,Active
+1000476,Burnie - Somerset,"Burnie - Somerset,Tasmania,Australia",20039,AU,City,Active
+1000479,Devonport,"Devonport,Tasmania,Australia",20039,AU,City,Active
+1000480,Hobart,"Hobart,Tasmania,Australia",20039,AU,City,Active
+1000481,Launceston,"Launceston,Tasmania,Australia",20039,AU,City,Active
+1000485,Ulverstone,"Ulverstone,Tasmania,Australia",20039,AU,City,Active
+1000490,Bacchus Marsh,"Bacchus Marsh,Victoria,Australia",20040,AU,City,Active
+1000491,Bairnsdale,"Bairnsdale,Victoria,Australia",20040,AU,City,Active
+1000492,Ballarat,"Ballarat,Victoria,Australia",20040,AU,City,Active
+1000498,Bendigo,"Bendigo,Victoria,Australia",20040,AU,City,Active
+1000521,Cranbourne,"Cranbourne,Victoria,Australia",20040,AU,City,Active
+1000530,Echuca,"Echuca,Victoria,Australia",20040,AU,City,Active
+1000537,Geelong,"Geelong,Victoria,Australia",20040,AU,City,Active
+1000549,Horsham,"Horsham,Victoria,Australia",20040,AU,City,Active
+1000550,Palmerston City,"Palmerston City,Northern Territory,Australia",20036,AU,City,Active
+1000567,Melbourne,"Melbourne,Victoria,Australia",20040,AU,City,Active
+1000568,Melton,"Melton,Victoria,Australia",20040,AU,City,Active
+1000571,Mildura,"Mildura,Victoria,Australia",20040,AU,City,Active
+1000572,Moe - Newborough,"Moe - Newborough,Victoria,Australia",20040,AU,City,Active
+1000576,Morwell,"Morwell,Victoria,Australia",20040,AU,City,Active
+1000588,Colac,"Colac,Victoria,Australia",20040,AU,City,Active
+1000590,Pakenham,"Pakenham,Victoria,Australia",20040,AU,City,Active
+1000593,Portland,"Portland,Victoria,Australia",20040,AU,City,Active
+1000594,Central Coast,"Central Coast,New South Wales,Australia",20035,AU,City,Active
+1000599,Casino,"Casino,New South Wales,Australia",20035,AU,City,Active
+1000602,Sale,"Sale,Victoria,Australia",20040,AU,City,Active
+1000605,Shepparton - Mooroopna,"Shepparton - Mooroopna,Victoria,Australia",20040,AU,City,Active
+1000609,Sunbury,"Sunbury,Victoria,Australia",20040,AU,City,Active
+1000614,Traralgon,"Traralgon,Victoria,Australia",20040,AU,City,Active
+1000616,Wangaratta,"Wangaratta,Victoria,Australia",20040,AU,City,Active
+1000620,Warrnambool,"Warrnambool,Victoria,Australia",20040,AU,City,Active
+1000630,Albany,"Albany,Western Australia,Australia",20041,AU,City,Active
+1000635,Broome,"Broome,Western Australia,Australia",20041,AU,City,Active
+1000636,Bunbury,"Bunbury,Western Australia,Australia",20041,AU,City,Active
+1000637,Busselton,"Busselton,Western Australia,Australia",20041,AU,City,Active
+1000650,Geraldton,"Geraldton,Western Australia,Australia",20041,AU,City,Active
+1000652,Hervey Bay,"Hervey Bay,Queensland,Australia",20037,AU,City,Active
+1000653,Kalgoorlie - Boulder,"Kalgoorlie - Boulder,Western Australia,Australia",20041,AU,City,Active
+1000654,Karratha,"Karratha,Western Australia,Australia",20041,AU,City,Active
+1000658,Kwinana Town Centre,"Kwinana Town Centre,Western Australia,Australia",20041,AU,City,Active
+1000662,Mandurah,"Mandurah,Western Australia,Australia",20041,AU,City,Active
+1000665,Gold Coast,"Gold Coast,Queensland,Australia",20037,AU,City,Active
+1000676,Perth,"Perth,Western Australia,Australia",20041,AU,City,Active
+1000678,Port Hedland,"Port Hedland,Western Australia,Australia",20041,AU,City,Active
+1000679,Rockingham,"Rockingham,Western Australia,Australia",20041,AU,City,Active
+1000683,Bad Tatzmannsdorf,"Bad Tatzmannsdorf,Burgenland,Austria",20042,AT,City,Active
+1000684,Eisenstadt,"Eisenstadt,Burgenland,Austria",20042,AT,City,Active
+1000685,Grosspetersdorf,"Grosspetersdorf,Burgenland,Austria",20042,AT,City,Active
+1000686,Jennersdorf,"Jennersdorf,Burgenland,Austria",20042,AT,City,Active
+1000687,Landsee,"Landsee,Burgenland,Austria",20042,AT,City,Active
+1000688,Lockenhaus,"Lockenhaus,Burgenland,Austria",20042,AT,City,Active
+1000689,Mattersburg,"Mattersburg,Burgenland,Austria",20042,AT,City,Active
+1000690,Neusiedl am See,"Neusiedl am See,Burgenland,Austria",20042,AT,City,Active
+1000691,Oberpullendorf,"Oberpullendorf,Burgenland,Austria",20042,AT,City,Active
+1000692,Oberwart,"Oberwart,Burgenland,Austria",20042,AT,City,Active
+1000693,Parndorf,"Parndorf,Burgenland,Austria",20042,AT,City,Active
+1000694,Wimpassing an der Leitha,"Wimpassing an der Leitha,Austria",2040,AT,City,Active
+1000695,Arnoldstein,"Arnoldstein,Carinthia,Austria",20043,AT,City,Active
+1000696,Bad Sankt Leonhard im Lavanttal,"Bad Sankt Leonhard im Lavanttal,Carinthia,Austria",20043,AT,City,Active
+1000697,Bad Bleiberg,"Bad Bleiberg,Carinthia,Austria",20043,AT,City,Active
+1000698,Feistritz an der Drau,"Feistritz an der Drau,Carinthia,Austria",20043,AT,City,Active
+1000699,Frantschach,"Frantschach,Carinthia,Austria",20043,AT,City,Active
+1000700,Friesach,"Friesach,Carinthia,Austria",20043,AT,City,Active
+1000701,Klagenfurt,"Klagenfurt,Carinthia,Austria",20043,AT,City,Active
+1000702,Mallnitz,"Mallnitz,Carinthia,Austria",20043,AT,City,Active
+1000703,Neudorfl,"Neudorfl,Burgenland,Austria",20042,AT,City,Active
+1000704,Radenthein,"Radenthein,Carinthia,Austria",20043,AT,City,Active
+1000705,Treffen,"Treffen,Carinthia,Austria",20043,AT,City,Active
+1000707,Villach,"Villach,Carinthia,Austria",20043,AT,City,Active
+1000708,Wernberg,"Wernberg,Carinthia,Austria",20043,AT,City,Active
+1000709,Amstetten,"Amstetten,Lower Austria,Austria",20044,AT,City,Active
+1000710,Baden bei Wien,"Baden bei Wien,Lower Austria,Austria",20044,AT,City,Active
+1000711,Bruck an der Leitha,"Bruck an der Leitha,Lower Austria,Austria",20044,AT,City,Active
+1000712,Ebergassing,"Ebergassing,Lower Austria,Austria",20044,AT,City,Active
+1000713,Eggenburg,"Eggenburg,Lower Austria,Austria",20044,AT,City,Active
+1000714,Enzesfeld,"Enzesfeld,Lower Austria,Austria",20044,AT,City,Active
+1000715,Gablitz,"Gablitz,Lower Austria,Austria",20044,AT,City,Active
+1000716,Gaming,"Gaming,Lower Austria,Austria",20044,AT,City,Active
+1000717,Gars am Kamp,"Gars am Kamp,Lower Austria,Austria",20044,AT,City,Active
+1000718,Gerasdorf,"Gerasdorf,Lower Austria,Austria",20044,AT,City,Active
+1000719,Gloggnitz,"Gloggnitz,Lower Austria,Austria",20044,AT,City,Active
+1000720,Gresten,"Gresten,Lower Austria,Austria",20044,AT,City,Active
+1000721,Gross-Enzersdorf,"Gross-Enzersdorf,Lower Austria,Austria",20044,AT,City,Active
+1000722,Gumpoldskirchen,"Gumpoldskirchen,Lower Austria,Austria",20044,AT,City,Active
+1000723,Guntramsdorf,"Guntramsdorf,Lower Austria,Austria",20044,AT,City,Active
+1000724,Hainburg an der Donau,"Hainburg an der Donau,Lower Austria,Austria",20044,AT,City,Active
+1000725,Hainfeld,"Hainfeld,Lower Austria,Austria",20044,AT,City,Active
+1000727,Heidenreichstein,"Heidenreichstein,Lower Austria,Austria",20044,AT,City,Active
+1000728,Herzogenburg,"Herzogenburg,Lower Austria,Austria",20044,AT,City,Active
+1000729,Himberg,"Himberg,Lower Austria,Austria",20044,AT,City,Active
+1000731,Hirtenberg,"Hirtenberg,Lower Austria,Austria",20044,AT,City,Active
+1000733,Hohenberg,"Hohenberg,Lower Austria,Austria",20044,AT,City,Active
+1000734,Hollabrunn,"Hollabrunn,Lower Austria,Austria",20044,AT,City,Active
+1000735,Horn,"Horn,Lower Austria,Austria",20044,AT,City,Active
+1000736,Kaltenleutgeben,"Kaltenleutgeben,Lower Austria,Austria",20044,AT,City,Active
+1000737,Kirchberg am Wechsel,"Kirchberg am Wechsel,Lower Austria,Austria",20044,AT,City,Active
+1000738,Klosterneuburg,"Klosterneuburg,Lower Austria,Austria",20044,AT,City,Active
+1000739,Korneuburg,"Korneuburg,Lower Austria,Austria",20044,AT,City,Active
+1000740,Kottingbrunn,"Kottingbrunn,Lower Austria,Austria",20044,AT,City,Active
+1000741,Krems an der Donau,"Krems an der Donau,Lower Austria,Austria",20044,AT,City,Active
+1000742,Langenzersdorf,"Langenzersdorf,Lower Austria,Austria",20044,AT,City,Active
+1000743,Lanzendorf,"Lanzendorf,Lower Austria,Austria",20044,AT,City,Active
+1000744,Laxenburg,"Laxenburg,Lower Austria,Austria",20044,AT,City,Active
+1000745,Leopoldsdorf,"Leopoldsdorf,Lower Austria,Austria",20044,AT,City,Active
+1000746,Lilienfeld,"Lilienfeld,Lower Austria,Austria",20044,AT,City,Active
+1000747,Lunz am See,"Lunz am See,Lower Austria,Austria",20044,AT,City,Active
+1000748,Mank,"Mank,Lower Austria,Austria",20044,AT,City,Active
+1000749,Maria Enzersdorf,"Maria Enzersdorf,Lower Austria,Austria",20044,AT,City,Active
+1000750,Melk,"Melk,Lower Austria,Austria",20044,AT,City,Active
+1000751,Mistelbach,"Mistelbach,Lower Austria,Austria",20044,AT,City,Active
+1000752,Mitterbach am Erlaufsee,"Mitterbach am Erlaufsee,Lower Austria,Austria",20044,AT,Municipality,Active
+1000753,Modling,"Modling,Lower Austria,Austria",20044,AT,City,Active
+1000754,Monichkirchen,"Monichkirchen,Lower Austria,Austria",20044,AT,City,Active
+1000755,Moosbrunn,"Moosbrunn,Lower Austria,Austria",20044,AT,City,Active
+1000757,Neulengbach,"Neulengbach,Lower Austria,Austria",20044,AT,City,Active
+1000758,Neunkirchen,"Neunkirchen,Lower Austria,Austria",20044,AT,City,Active
+1000759,Ober-Grafendorf,"Ober-Grafendorf,Lower Austria,Austria",20044,AT,City,Active
+1000763,Perchtoldsdorf,"Perchtoldsdorf,Lower Austria,Austria",20044,AT,City,Active
+1000764,Pernitz,"Pernitz,Lower Austria,Austria",20044,AT,City,Active
+1000765,Pochlarn,"Pochlarn,Lower Austria,Austria",20044,AT,City,Active
+1000766,Poysdorf,"Poysdorf,Lower Austria,Austria",20044,AT,City,Active
+1000767,Pressbaum,"Pressbaum,Lower Austria,Austria",20044,AT,City,Active
+1000768,Purkersdorf,"Purkersdorf,Lower Austria,Austria",20044,AT,City,Active
+1000769,Reichenau an der Rax,"Reichenau an der Rax,Lower Austria,Austria",20044,AT,City,Active
+1000770,Retz,"Retz,Lower Austria,Austria",20044,AT,City,Active
+1000772,Saint Polten,"Saint Polten,Lower Austria,Austria",20044,AT,City,Active
+1000773,Saint Valentin,"Saint Valentin,Lower Austria,Austria",20044,AT,City,Active
+1000774,Schrems,"Schrems,Lower Austria,Austria",20044,AT,City,Active
+1000775,Schwadorf,"Schwadorf,Lower Austria,Austria",20044,AT,City,Active
+1000776,Schwechat,"Schwechat,Lower Austria,Austria",20044,AT,City,Active
+1000777,Seitenstetten,"Seitenstetten,Lower Austria,Austria",20044,AT,City,Active
+1000779,Stockerau,"Stockerau,Lower Austria,Austria",20044,AT,City,Active
+1000780,Strasshof an der Nordbahn,"Strasshof an der Nordbahn,Lower Austria,Austria",20044,AT,City,Active
+1000781,Teesdorf,"Teesdorf,Lower Austria,Austria",20044,AT,City,Active
+1000782,Ternitz,"Ternitz,Lower Austria,Austria",20044,AT,City,Active
+1000784,Traiskirchen,"Traiskirchen,Lower Austria,Austria",20044,AT,City,Active
+1000786,Tulln,"Tulln,Lower Austria,Austria",20044,AT,City,Active
+1000788,Vosendorf,"Vosendorf,Lower Austria,Austria",20044,AT,City,Active
+1000790,Waidhofen an der Ybbs,"Waidhofen an der Ybbs,Lower Austria,Austria",20044,AT,City,Active
+1000791,Wartmannstetten,"Wartmannstetten,Lower Austria,Austria",20044,AT,City,Active
+1000792,Wiener Neudorf,"Wiener Neudorf,Lower Austria,Austria",20044,AT,City,Active
+1000793,Wiener Neustadt,"Wiener Neustadt,Lower Austria,Austria",20044,AT,City,Active
+1000794,Wolkersdorf,"Wolkersdorf,Lower Austria,Austria",20044,AT,City,Active
+1000795,Ybbsitz,"Ybbsitz,Lower Austria,Austria",20044,AT,City,Active
+1000796,Ziersdorf,"Ziersdorf,Lower Austria,Austria",20044,AT,City,Active
+1000797,Zwettl,"Zwettl,Lower Austria,Austria",20044,AT,City,Active
+1000799,Alkoven,"Alkoven,Upper Austria,Austria",20045,AT,City,Active
+1000801,Altheim,"Altheim,Upper Austria,Austria",20045,AT,Municipality,Active
+1000802,Altmunster,"Altmunster,Upper Austria,Austria",20045,AT,City,Active
+1000803,Ansfelden,"Ansfelden,Upper Austria,Austria",20045,AT,City,Active
+1000804,Bad Ischl,"Bad Ischl,Upper Austria,Austria",20045,AT,City,Active
+1000805,Braunau am Inn,"Braunau am Inn,Upper Austria,Austria",20045,AT,City,Active
+1000806,Burgkirchen,"Burgkirchen,Upper Austria,Austria",20045,AT,Municipality,Active
+1000807,Eferding,"Eferding,Upper Austria,Austria",20045,AT,City,Active
+1000808,Eggelsberg,"Eggelsberg,Upper Austria,Austria",20045,AT,City,Active
+1000809,Enns,"Enns,Upper Austria,Austria",20045,AT,City,Active
+1000810,Esternberg,"Esternberg,Upper Austria,Austria",20045,AT,City,Active
+1000811,Feldkirchen an der Donau,"Feldkirchen an der Donau,Upper Austria,Austria",20045,AT,City,Active
+1000812,Frankenburg,"Frankenburg,Upper Austria,Austria",20045,AT,City,Active
+1000813,Frankenmarkt,"Frankenmarkt,Upper Austria,Austria",20045,AT,City,Active
+1000814,Gallspach,"Gallspach,Upper Austria,Austria",20045,AT,City,Active
+1000815,Garsten,"Garsten,Upper Austria,Austria",20045,AT,City,Active
+1000816,Gmunden,"Gmunden,Upper Austria,Austria",20045,AT,City,Active
+1000817,Grieskirchen,"Grieskirchen,Upper Austria,Austria",20045,AT,City,Active
+1000818,Gunskirchen,"Gunskirchen,Upper Austria,Austria",20045,AT,City,Active
+1000819,Gutau,"Gutau,Upper Austria,Austria",20045,AT,City,Active
+1000820,Hagenberg,"Hagenberg,Upper Austria,Austria",20045,AT,City,Active
+1000821,Horsching,"Horsching,Upper Austria,Austria",20045,AT,City,Active
+1000822,Kirchdorf an der Krems,"Kirchdorf an der Krems,Upper Austria,Austria",20045,AT,City,Active
+1000823,Kremsmunster,"Kremsmunster,Upper Austria,Austria",20045,AT,City,Active
+1000824,Laakirchen,"Laakirchen,Upper Austria,Austria",20045,AT,City,Active
+1000825,Lenzing,"Lenzing,Upper Austria,Austria",20045,AT,City,Active
+1000826,Leonding,"Leonding,Upper Austria,Austria",20045,AT,City,Active
+1000827,Linz,"Linz,Upper Austria,Austria",20045,AT,City,Active
+1000828,Marchtrenk,"Marchtrenk,Upper Austria,Austria",20045,AT,City,Active
+1000829,Mauthausen,"Mauthausen,Upper Austria,Austria",20045,AT,City,Active
+1000830,Micheldorf in Oberosterreich,"Micheldorf in Oberosterreich,Upper Austria,Austria",20045,AT,City,Active
+1000831,Mondsee,"Mondsee,Upper Austria,Austria",20045,AT,City,Active
+1000835,Niederwaldkirchen,"Niederwaldkirchen,Upper Austria,Austria",20045,AT,City,Active
+1000836,Ohlsdorf,"Ohlsdorf,Upper Austria,Austria",20045,AT,City,Active
+1000837,Ort,"Ort,Upper Austria,Austria",20045,AT,City,Active
+1000838,Pasching,"Pasching,Upper Austria,Austria",20045,AT,City,Active
+1000839,Perg,"Perg,Upper Austria,Austria",20045,AT,City,Active
+1000840,Peuerbach,"Peuerbach,Upper Austria,Austria",20045,AT,City,Active
+1000841,Pram,"Pram,Upper Austria,Austria",20045,AT,City,Active
+1000843,Ried im Innkreis,"Ried im Innkreis,Upper Austria,Austria",20045,AT,City,Active
+1000844,Sankt Florian,"Sankt Florian,Upper Austria,Austria",20045,AT,City,Active
+1000845,Scharding,"Scharding,Upper Austria,Austria",20045,AT,City,Active
+1000846,Scharnstein,"Scharnstein,Upper Austria,Austria",20045,AT,City,Active
+1000847,Schwertberg,"Schwertberg,Upper Austria,Austria",20045,AT,City,Active
+1000848,Seewalchen am Attersee,"Seewalchen am Attersee,Upper Austria,Austria",20045,AT,City,Active
+1000849,Stadl-Paura,"Stadl-Paura,Upper Austria,Austria",20045,AT,Municipality,Active
+1000850,Steyr,"Steyr,Upper Austria,Austria",20045,AT,City,Active
+1000851,Thalheim bei Wels,"Thalheim bei Wels,Upper Austria,Austria",20045,AT,City,Active
+1000852,Traun,"Traun,Upper Austria,Austria",20045,AT,City,Active
+1000853,Vocklabruck,"Vocklabruck,Upper Austria,Austria",20045,AT,City,Active
+1000854,Vocklamarkt,"Vocklamarkt,Upper Austria,Austria",20045,AT,City,Active
+1000855,Vorchdorf,"Vorchdorf,Upper Austria,Austria",20045,AT,City,Active
+1000856,Waldkirchen am Wesen,"Waldkirchen am Wesen,Upper Austria,Austria",20045,AT,City,Active
+1000857,Wels,"Wels,Upper Austria,Austria",20045,AT,City,Active
+1000858,Wernstein am Inn,"Wernstein am Inn,Upper Austria,Austria",20045,AT,City,Active
+1000860,Anif,"Anif,Salzburg,Austria",20046,AT,City,Active
+1000861,Bad Hofgastein,"Bad Hofgastein,Salzburg,Austria",20046,AT,City,Active
+1000862,Badgastein,"Badgastein,Salzburg,Austria",20046,AT,City,Active
+1000863,Bergheim,"Bergheim,Salzburg,Austria",20046,AT,City,Active
+1000864,Bischofshofen,"Bischofshofen,Salzburg,Austria",20046,AT,City,Active
+1000865,Eugendorf,"Eugendorf,Salzburg,Austria",20046,AT,City,Active
+1000866,Fusch,"Fusch,Salzburg,Austria",20046,AT,City,Active
+1000867,Fuschl,"Fuschl,Salzburg,Austria",20046,AT,City,Active
+1000869,Grodig,"Grodig,Salzburg,Austria",20046,AT,City,Active
+1000870,Hallein,"Hallein,Salzburg,Austria",20046,AT,City,Active
+1000871,Kaprun,"Kaprun,Salzburg,Austria",20046,AT,City,Active
+1000872,Lofer,"Lofer,Salzburg,Austria",20046,AT,City,Active
+1000873,Michaelbeuern,"Michaelbeuern,Salzburg,Austria",20046,AT,City,Active
+1000874,Oberalm,"Oberalm,Salzburg,Austria",20046,AT,City,Active
+1000875,Pfarrwerfen,"Pfarrwerfen,Salzburg,Austria",20046,AT,City,Active
+1000876,Rauris,"Rauris,Salzburg,Austria",20046,AT,City,Active
+1000877,Saalbach-Hinterglemm,"Saalbach-Hinterglemm,Salzburg,Austria",20046,AT,City,Active
+1000878,Salzburg,"Salzburg,Salzburg,Austria",20046,AT,City,Active
+1000879,Schwarzach im Pongau,"Schwarzach im Pongau,Salzburg,Austria",20046,AT,City,Active
+1000880,Siezenheim,"Siezenheim,Salzburg,Austria",20046,AT,City,Active
+1000881,Tamsweg,"Tamsweg,Salzburg,Austria",20046,AT,City,Active
+1000882,Thalgau,"Thalgau,Salzburg,Austria",20046,AT,City,Active
+1000884,Zell am See,"Zell am See,Salzburg,Austria",20046,AT,City,Active
+1000885,Admont,"Admont,Styria,Austria",20047,AT,City,Active
+1000886,Bad Gleichenberg,"Bad Gleichenberg,Styria,Austria",20047,AT,City,Active
+1000887,Bad Radkersburg,"Bad Radkersburg,Styria,Austria",20047,AT,City,Active
+1000888,Birkfeld,"Birkfeld,Styria,Austria",20047,AT,City,Active
+1000889,Bruck an der Mur,"Bruck an der Mur,Styria,Austria",20047,AT,City,Active
+1000890,Deutschlandsberg,"Deutschlandsberg,Styria,Austria",20047,AT,City,Active
+1000892,Ehrenhausen,"Ehrenhausen,Styria,Austria",20047,AT,City,Active
+1000893,Eisenerz,"Eisenerz,Styria,Austria",20047,AT,City,Active
+1000894,Feldbach,"Feldbach,Styria,Austria",20047,AT,City,Active
+1000895,Frauental an der Lassnitz,"Frauental an der Lassnitz,Styria,Austria",20047,AT,Neighborhood,Active
+1000896,Frohnleiten,"Frohnleiten,Styria,Austria",20047,AT,City,Active
+1000898,Gleisdorf,"Gleisdorf,Styria,Austria",20047,AT,City,Active
+1000899,Gratkorn,"Gratkorn,Styria,Austria",20047,AT,City,Active
+1000900,Graz,"Graz,Styria,Austria",20047,AT,City,Active
+1000901,Hartberg,"Hartberg,Styria,Austria",20047,AT,City,Active
+1000902,Hausmannstatten,"Hausmannstatten,Styria,Austria",20047,AT,City,Active
+1000903,Ilz,"Ilz,Styria,Austria",20047,AT,City,Active
+1000904,Judenburg,"Judenburg,Styria,Austria",20047,AT,City,Active
+1000905,Kalsdorf bei Graz,"Kalsdorf bei Graz,Styria,Austria",20047,AT,City,Active
+1000906,Kapfenberg,"Kapfenberg,Styria,Austria",20047,AT,City,Active
+1000907,Kindberg,"Kindberg,Styria,Austria",20047,AT,City,Active
+1000908,Knittelfeld,"Knittelfeld,Styria,Austria",20047,AT,City,Active
+1000909,Koflach,"Koflach,Styria,Austria",20047,AT,City,Active
+1000910,Alpl,"Alpl,Styria,Austria",20047,AT,City,Active
+1000911,Leibnitz,"Leibnitz,Styria,Austria",20047,AT,City,Active
+1000912,Leoben,"Leoben,Styria,Austria",20047,AT,City,Active
+1000913,Liezen,"Liezen,Styria,Austria",20047,AT,City,Active
+1000914,Mariazell,"Mariazell,Styria,Austria",20047,AT,City,Active
+1000915,Murau,"Murau,Styria,Austria",20047,AT,City,Active
+1000916,Mureck,"Mureck,Styria,Austria",20047,AT,City,Active
+1000917,Murzzuschlag,"Murzzuschlag,Styria,Austria",20047,AT,City,Active
+1000918,Rottenmann,"Rottenmann,Styria,Austria",20047,AT,City,Active
+1000919,Sankt Lambrecht,"Sankt Lambrecht,Styria,Austria",20047,AT,City,Active
+1000920,Sankt Margarethen an der Raab,"Sankt Margarethen an der Raab,Styria,Austria",20047,AT,City,Active
+1000922,Schladming,"Schladming,Styria,Austria",20047,AT,City,Active
+1000924,Stubenberg,"Stubenberg,Styria,Austria",20047,AT,City,Active
+1000925,Unterpremstatten,"Unterpremstatten,Styria,Austria",20047,AT,City,Active
+1000926,Voitsberg,"Voitsberg,Styria,Austria",20047,AT,City,Active
+1000927,Weiz,"Weiz,Styria,Austria",20047,AT,City,Active
+1000928,Zeltweg,"Zeltweg,Styria,Austria",20047,AT,City,Active
+1000929,Absam,"Absam,Tyrol,Austria",20048,AT,City,Active
+1000930,Achenkirch,"Achenkirch,Tyrol,Austria",20048,AT,City,Active
+1000931,Axams,"Axams,Tyrol,Austria",20048,AT,City,Active
+1000932,Brixlegg,"Brixlegg,Tyrol,Austria",20048,AT,City,Active
+1000933,Bruck am Ziller,"Bruck am Ziller,Tyrol,Austria",20048,AT,City,Active
+1000934,Ehrwald,"Ehrwald,Tyrol,Austria",20048,AT,City,Active
+1000935,Fulpmes,"Fulpmes,Tyrol,Austria",20048,AT,City,Active
+1000936,Galtur,"Galtur,Tyrol,Austria",20048,AT,City,Active
+1000937,Hall in Tirol,"Hall in Tirol,Tyrol,Austria",20048,AT,City,Active
+1000939,Hopfgarten im Brixental,"Hopfgarten im Brixental,Tyrol,Austria",20048,AT,City,Active
+1000940,Imst,"Imst,Tyrol,Austria",20048,AT,City,Active
+1000941,Innsbruck,"Innsbruck,Tyrol,Austria",20048,AT,City,Active
+1000942,Jenbach,"Jenbach,Tyrol,Austria",20048,AT,City,Active
+1000943,Kitzbuhel,"Kitzbuhel,Tyrol,Austria",20048,AT,City,Active
+1000944,Kufstein,"Kufstein,Tyrol,Austria",20048,AT,City,Active
+1000945,Kundl,"Kundl,Tyrol,Austria",20048,AT,City,Active
+1000946,Landeck,"Landeck,Tyrol,Austria",20048,AT,City,Active
+1000947,Lermoos,"Lermoos,Tyrol,Austria",20048,AT,City,Active
+1000948,Lienz,"Lienz,Tyrol,Austria",20048,AT,City,Active
+1000949,Mayrhofen,"Mayrhofen,Tyrol,Austria",20048,AT,City,Active
+1000950,Mieming,"Mieming,Tyrol,Austria",20048,AT,City,Active
+1000951,Pians,"Pians,Tyrol,Austria",20048,AT,City,Active
+1000952,Pill,"Pill,Tyrol,Austria",20048,AT,City,Active
+1000953,Reutte,"Reutte,Tyrol,Austria",20048,AT,City,Active
+1000954,Saint Anton am Arlberg,"Saint Anton am Arlberg,Tyrol,Austria",20048,AT,City,Active
+1000955,Sankt Johann Im Walde,"Sankt Johann Im Walde,Tyrol,Austria",20048,AT,City,Active
+1000956,Schwaz,"Schwaz,Tyrol,Austria",20048,AT,City,Active
+1000957,Seefeld,"Seefeld,Tyrol,Austria",20048,AT,City,Active
+1000958,Sillian,"Sillian,Tyrol,Austria",20048,AT,City,Active
+1000959,Soelden,"Soelden,Tyrol,Austria",20048,AT,City,Active
+1000960,Steeg,"Steeg,Tyrol,Austria",20048,AT,City,Active
+1000962,Volders,"Volders,Tyrol,Austria",20048,AT,City,Active
+1000963,Vomp,"Vomp,Tyrol,Austria",20048,AT,City,Active
+1000964,Walchsee,"Walchsee,Tyrol,Austria",20048,AT,City,Active
+1000965,Wattens,"Wattens,Tyrol,Austria",20048,AT,City,Active
+1000966,Worgl,"Worgl,Tyrol,Austria",20048,AT,City,Active
+1000967,Zams,"Zams,Tyrol,Austria",20048,AT,City,Active
+1000968,Zirl,"Zirl,Tyrol,Austria",20048,AT,City,Active
+1000969,Altach,"Altach,Vorarlberg,Austria",20049,AT,City,Active
+1000970,Bezau,"Bezau,Vorarlberg,Austria",20049,AT,City,Active
+1000971,Bludenz,"Bludenz,Vorarlberg,Austria",20049,AT,City,Active
+1000972,Brand,"Brand,Vorarlberg,Austria",20049,AT,City,Active
+1000973,Bregenz,"Bregenz,Vorarlberg,Austria",20049,AT,City,Active
+1000974,Dornbirn,"Dornbirn,Vorarlberg,Austria",20049,AT,City,Active
+1000975,Egg,"Egg,Vorarlberg,Austria",20049,AT,City,Active
+1000976,Feldkirch,"Feldkirch,Vorarlberg,Austria",20049,AT,City,Active
+1000978,Gotzis,"Gotzis,Vorarlberg,Austria",20049,AT,City,Active
+1000979,Hard,"Hard,Vorarlberg,Austria",20049,AT,City,Active
+1000981,Hochst,"Hochst,Vorarlberg,Austria",20049,AT,City,Active
+1000982,Hohenems,"Hohenems,Vorarlberg,Austria",20049,AT,City,Active
+1000983,Kennelbach,"Kennelbach,Vorarlberg,Austria",20049,AT,City,Active
+1000984,Koblach,"Koblach,Vorarlberg,Austria",20049,AT,City,Active
+1000985,Lauterach,"Lauterach,Vorarlberg,Austria",20049,AT,City,Active
+1000986,Lech,"Lech,Vorarlberg,Austria",20049,AT,City,Active
+1000987,Lochau,"Lochau,Vorarlberg,Austria",20049,AT,City,Active
+1000988,Lustenau,"Lustenau,Vorarlberg,Austria",20049,AT,City,Active
+1000989,Nenzing,"Nenzing,Vorarlberg,Austria",20049,AT,City,Active
+1000990,Rankweil,"Rankweil,Vorarlberg,Austria",20049,AT,City,Active
+1000991,Schlins,"Schlins,Vorarlberg,Austria",20049,AT,City,Active
+1000992,Schruns,"Schruns,Vorarlberg,Austria",20049,AT,City,Active
+1000993,Schwarzach,"Schwarzach,Vorarlberg,Austria",20049,AT,City,Active
+1000994,Sulzberg,"Sulzberg,Vorarlberg,Austria",20049,AT,City,Active
+1000996,Wolfurt,"Wolfurt,Vorarlberg,Austria",20049,AT,City,Active
+1000997,Vienna,"Vienna,Vienna,Austria",20050,AT,City,Active
+1000998,Baku,"Baku,Azerbaijan",2031,AZ,City,Active
+1001001,Anderlecht,"Anderlecht,Brussels,Belgium",20052,BE,City,Active
+1001003,Bertem,"Bertem,Flanders,Belgium",9069523,BE,City,Active
+1001004,Brussels,"Brussels,Brussels,Belgium",20052,BE,City,Active
+1001006,Etterbeek,"Etterbeek,Brussels,Belgium",20052,BE,City,Active
+1001007,Evere,"Evere,Brussels,Belgium",20052,BE,City,Active
+1001009,Hoeilaart,"Hoeilaart,Flanders,Belgium",9069523,BE,City,Active
+1001010,Ixelles,"Ixelles,Brussels,Belgium",20052,BE,City,Active
+1001011,Jette,"Jette,Brussels,Belgium",20052,BE,City,Active
+1001012,Kraainem,"Kraainem,Flanders,Belgium",9069523,BE,City,Active
+1001015,Schaerbeek,"Schaerbeek,Brussels,Belgium",20052,BE,City,Active
+1001018,Uccle,"Uccle,Brussels,Belgium",20052,BE,City,Active
+1001019,Wezembeek-Oppem,"Wezembeek-Oppem,Flanders,Belgium",9069523,BE,City,Active
+1001020,Woluwe-Saint-Lambert,"Woluwe-Saint-Lambert,Brussels,Belgium",20052,BE,City,Active
+1001021,Antwerp,"Antwerp,Antwerp,Flanders,Belgium",9069523,BE,City,Active
+1001022,Arendonk,"Arendonk,Flanders,Belgium",9069523,BE,City,Active
+1001025,Balen,"Balen,Flanders,Belgium",9069523,BE,City,Active
+1001026,Beerse,"Beerse,Flanders,Belgium",9069523,BE,City,Active
+1001027,Boechout,"Boechout,Flanders,Belgium",9069523,BE,City,Active
+1001028,Bonheiden,"Bonheiden,Flanders,Belgium",9069523,BE,City,Active
+1001030,Boom,"Boom,Flanders,Belgium",9069523,BE,City,Active
+1001032,Bornem,"Bornem,Flanders,Belgium",9069523,BE,City,Active
+1001034,Brasschaat,"Brasschaat,Flanders,Belgium",9069523,BE,City,Active
+1001038,Duffel,"Duffel,Flanders,Belgium",9069523,BE,City,Active
+1001039,Edegem,"Edegem,Flanders,Belgium",9069523,BE,City,Active
+1001041,Essen,"Essen,Flanders,Belgium",9069523,BE,City,Active
+1001042,Geel,"Geel,Flanders,Belgium",9069523,BE,City,Active
+1001044,Grobbendonk,"Grobbendonk,Flanders,Belgium",9069523,BE,City,Active
+1001045,Heist-op-den-Berg,"Heist-op-den-Berg,Flanders,Belgium",9069523,BE,City,Active
+1001046,Hemiksem,"Hemiksem,Flanders,Belgium",9069523,BE,City,Active
+1001047,Herentals,"Herentals,Flanders,Belgium",9069523,BE,City,Active
+1001049,Hoogstraten,"Hoogstraten,Flanders,Belgium",9069523,BE,City,Active
+1001051,Kalmthout,"Kalmthout,Flanders,Belgium",9069523,BE,City,Active
+1001052,Kapellen,"Kapellen,Flanders,Belgium",9069523,BE,City,Active
+1001054,Kontich,"Kontich,Flanders,Belgium",9069523,BE,City,Active
+1001057,Lier,"Lier,Flanders,Belgium",9069523,BE,City,Active
+1001058,Malle,"Malle,Flanders,Belgium",9069523,BE,City,Active
+1001059,Mechelen,"Mechelen,Flanders,Belgium",9069523,BE,City,Active
+1001062,Mol,"Mol,Flanders,Belgium",9069523,BE,City,Active
+1001063,Mortsel,"Mortsel,Flanders,Belgium",9069523,BE,City,Active
+1001066,Olen,"Olen,Flanders,Belgium",9069523,BE,City,Active
+1001068,Puurs,"Puurs,Flanders,Belgium",9069523,BE,City,Active
+1001070,Rijkevorsel,"Rijkevorsel,Flanders,Belgium",9069523,BE,City,Active
+1001071,Rumst,"Rumst,Flanders,Belgium",9069523,BE,City,Active
+1001072,Schelle,"Schelle,Flanders,Belgium",9069523,BE,City,Active
+1001073,Schilde,"Schilde,Flanders,Belgium",9069523,BE,City,Active
+1001074,Schoten,"Schoten,Flanders,Belgium",9069523,BE,City,Active
+1001076,Sint-Amands,"Sint-Amands,Flanders,Belgium",9069523,BE,City,Active
+1001078,Stabroek,"Stabroek,Flanders,Belgium",9069523,BE,City,Active
+1001080,Turnhout,"Turnhout,Flanders,Belgium",9069523,BE,City,Active
+1001082,Vosselaar,"Vosselaar,Flanders,Belgium",9069523,BE,City,Active
+1001083,Westerlo,"Westerlo,Flanders,Belgium",9069523,BE,City,Active
+1001084,Wijnegem,"Wijnegem,Flanders,Belgium",9069523,BE,City,Active
+1001085,Willebroek,"Willebroek,Flanders,Belgium",9069523,BE,City,Active
+1001087,Wommelgem,"Wommelgem,Flanders,Belgium",9069523,BE,City,Active
+1001088,Zandhoven,"Zandhoven,Flanders,Belgium",9069523,BE,City,Active
+1001089,Zoersel,"Zoersel,Flanders,Belgium",9069523,BE,City,Active
+1001090,Zwijndrecht,"Zwijndrecht,Flanders,Belgium",9069523,BE,City,Active
+1001091,Aarschot,"Aarschot,Flanders,Belgium",9069523,BE,City,Active
+1001092,Asse,"Asse,Flanders,Belgium",9069523,BE,City,Active
+1001094,Beauvechain,"Beauvechain,Walloon Region,Belgium",9069524,BE,City,Active
+1001095,Begijnendijk,"Begijnendijk,Flanders,Belgium",9069523,BE,City,Active
+1001097,Bierbeek,"Bierbeek,Flanders,Belgium",9069523,BE,City,Active
+1001098,Boutersem,"Boutersem,Flanders,Belgium",9069523,BE,City,Active
+1001100,Dilbeek,"Dilbeek,Flanders,Belgium",9069523,BE,City,Active
+1001104,Grimbergen,"Grimbergen,Flanders,Belgium",9069523,BE,City,Active
+1001105,Haacht,"Haacht,Flanders,Belgium",9069523,BE,City,Active
+1001107,Halle,"Halle,Flanders,Belgium",9069523,BE,City,Active
+1001108,Herent,"Herent,Flanders,Belgium",9069523,BE,City,Active
+1001110,Holsbeek,"Holsbeek,Flanders,Belgium",9069523,BE,City,Active
+1001112,Keerbergen,"Keerbergen,Flanders,Belgium",9069523,BE,City,Active
+1001116,Kortenberg,"Kortenberg,Flanders,Belgium",9069523,BE,City,Active
+1001117,Lennik,"Lennik,Flanders,Belgium",9069523,BE,City,Active
+1001118,Leuven,"Leuven,Flanders,Belgium",9069523,BE,City,Active
+1001121,Londerzeel,"Londerzeel,Flanders,Belgium",9069523,BE,City,Active
+1001122,Lubbeek,"Lubbeek,Flanders,Belgium",9069523,BE,City,Active
+1001123,Machelen,"Machelen,Flanders,Belgium",9069523,BE,City,Active
+1001125,Meise,"Meise,Flanders,Belgium",9069523,BE,City,Active
+1001129,Opwijk,"Opwijk,Flanders,Belgium",9069523,BE,City,Active
+1001130,Overijse,"Overijse,Flanders,Belgium",9069523,BE,City,Active
+1001133,Roosdaal,"Roosdaal,Flanders,Belgium",9069523,BE,City,Active
+1001134,Rotselaar,"Rotselaar,Flanders,Belgium",9069523,BE,City,Active
+1001136,Sint-Pieters-Leeuw,"Sint-Pieters-Leeuw,Flanders,Belgium",9069523,BE,City,Active
+1001138,Steenokkerzeel,"Steenokkerzeel,Flanders,Belgium",9069523,BE,City,Active
+1001140,Ternat,"Ternat,Flanders,Belgium",9069523,BE,City,Active
+1001141,Tervuren,"Tervuren,Flanders,Belgium",9069523,BE,City,Active
+1001142,Tienen,"Tienen,Flanders,Belgium",9069523,BE,City,Active
+1001143,Tremelo,"Tremelo,Flanders,Belgium",9069523,BE,City,Active
+1001145,Vilvoorde,"Vilvoorde,Flanders,Belgium",9069523,BE,City,Active
+1001150,Zaventem,"Zaventem,Flanders,Belgium",9069523,BE,City,Active
+1001152,Alken,"Alken,Flanders,Belgium",9069523,BE,City,Active
+1001153,Beringen,"Beringen,Flanders,Belgium",9069523,BE,City,Active
+1001154,Bilzen,"Bilzen,Flanders,Belgium",9069523,BE,City,Active
+1001157,Bree,"Bree,Flanders,Belgium",9069523,BE,City,Active
+1001159,Diepenbeek,"Diepenbeek,Flanders,Belgium",9069523,BE,City,Active
+1001162,Genk,"Genk,Flanders,Belgium",9069523,BE,City,Active
+1001163,Halen,"Halen,Flanders,Belgium",9069523,BE,City,Active
+1001165,Hasselt,"Hasselt,Flanders,Belgium",9069523,BE,City,Active
+1001166,Herk-de-Stad,"Herk-de-Stad,Flanders,Belgium",9069523,BE,City,Active
+1001167,Hoeselt,"Hoeselt,Flanders,Belgium",9069523,BE,City,Active
+1001170,Kinrooi,"Kinrooi,Flanders,Belgium",9069523,BE,City,Active
+1001172,Lanaken,"Lanaken,Flanders,Belgium",9069523,BE,City,Active
+1001174,Leopoldsburg,"Leopoldsburg,Flanders,Belgium",9069523,BE,City,Active
+1001175,Lommel,"Lommel,Flanders,Belgium",9069523,BE,City,Active
+1001176,Maaseik,"Maaseik,Flanders,Belgium",9069523,BE,City,Active
+1001178,Opglabbeek,"Opglabbeek,Flanders,Belgium",9069523,BE,City,Active
+1001179,Overpelt,"Overpelt,Flanders,Belgium",9069523,BE,City,Active
+1001181,Peer,"Peer,Flanders,Belgium",9069523,BE,City,Active
+1001182,Sint-Truiden,"Sint-Truiden,Flanders,Belgium",9069523,BE,City,Active
+1001183,Tessenderlo,"Tessenderlo,Flanders,Belgium",9069523,BE,City,Active
+1001184,Tongeren,"Tongeren,Flanders,Belgium",9069523,BE,City,Active
+1001185,Zonhoven,"Zonhoven,Flanders,Belgium",9069523,BE,City,Active
+1001187,Aalst,"Aalst,Flanders,Belgium",9069523,BE,City,Active
+1001188,Aalter,"Aalter,Flanders,Belgium",9069523,BE,City,Active
+1001189,Assenede,"Assenede,Flanders,Belgium",9069523,BE,City,Active
+1001191,Beveren,"Beveren,Flanders,Belgium",9069523,BE,City,Active
+1001193,Brakel,"Brakel,Flanders,Belgium",9069523,BE,City,Active
+1001194,Buggenhout,"Buggenhout,Flanders,Belgium",9069523,BE,City,Active
+1001196,Deerlijk,"Deerlijk,Flanders,Belgium",9069523,BE,City,Active
+1001197,Deinze,"Deinze,Flanders,Belgium",9069523,BE,City,Active
+1001198,Dendermonde,"Dendermonde,Flanders,Belgium",9069523,BE,City,Active
+1001199,Destelbergen,"Destelbergen,Flanders,Belgium",9069523,BE,City,Active
+1001201,Eeklo,"Eeklo,Flanders,Belgium",9069523,BE,City,Active
+1001206,Evergem,"Evergem,Flanders,Belgium",9069523,BE,City,Active
+1001207,Gavere,"Gavere,Flanders,Belgium",9069523,BE,City,Active
+1001208,Ghent,"Ghent,Flanders,Belgium",9069523,BE,City,Active
+1001209,Geraardsbergen,"Geraardsbergen,Flanders,Belgium",9069523,BE,City,Active
+1001210,Hamme,"Hamme,Flanders,Belgium",9069523,BE,City,Active
+1001215,Kruibeke,"Kruibeke,Flanders,Belgium",9069523,BE,City,Active
+1001216,Kruishoutem,"Kruishoutem,Flanders,Belgium",9069523,BE,City,Active
+1001217,Lebbeke,"Lebbeke,Flanders,Belgium",9069523,BE,City,Active
+1001221,Lochristi,"Lochristi,Flanders,Belgium",9069523,BE,City,Active
+1001222,Lokeren,"Lokeren,Flanders,Belgium",9069523,BE,City,Active
+1001223,Lovendegem,"Lovendegem,Flanders,Belgium",9069523,BE,City,Active
+1001224,Maldegem,"Maldegem,Maldegem,Flanders,Belgium",9069523,BE,City,Active
+1001225,Melle,"Melle,Flanders,Belgium",9069523,BE,City,Active
+1001228,Merelbeke,"Merelbeke,Flanders,Belgium",9069523,BE,City,Active
+1001231,Nazareth,"Nazareth,Flanders,Belgium",9069523,BE,City,Active
+1001232,Nevele,"Nevele,Flanders,Belgium",9069523,BE,City,Active
+1001234,Ninove,"Ninove,Flanders,Belgium",9069523,BE,City,Active
+1001236,Oosterzele,"Oosterzele,Flanders,Belgium",9069523,BE,City,Active
+1001237,Oudenaarde,"Oudenaarde,Flanders,Belgium",9069523,BE,City,Active
+1001238,Ronse,"Ronse,Flanders,Belgium",9069523,BE,City,Active
+1001242,Sint-Niklaas,"Sint-Niklaas,Flanders,Belgium",9069523,BE,City,Active
+1001243,Stekene,"Stekene,Flanders,Belgium",9069523,BE,City,Active
+1001244,Temse,"Temse,Flanders,Belgium",9069523,BE,City,Active
+1001247,Waarschoot,"Waarschoot,Flanders,Belgium",9069523,BE,City,Active
+1001249,Wetteren,"Wetteren,Flanders,Belgium",9069523,BE,City,Active
+1001252,Zele,"Zele,Flanders,Belgium",9069523,BE,City,Active
+1001254,Zottegem,"Zottegem,Flanders,Belgium",9069523,BE,City,Active
+1001256,Ardooie,"Ardooie,Flanders,Belgium",9069523,BE,City,Active
+1001259,Bruges,"Bruges,Flanders,Belgium",9069523,BE,City,Active
+1001261,Diksmuide,"Diksmuide,Flanders,Belgium",9069523,BE,City,Active
+1001262,Gistel,"Gistel,Flanders,Belgium",9069523,BE,City,Active
+1001266,Harelbeke,"Harelbeke,Flanders,Belgium",9069523,BE,City,Active
+1001268,Hooglede,"Hooglede,Flanders,Belgium",9069523,BE,City,Active
+1001269,Ypres,"Ypres,Flanders,Belgium",9069523,BE,City,Active
+1001270,Izegem,"Izegem,Flanders,Belgium",9069523,BE,City,Active
+1001271,Jabbeke,"Jabbeke,Flanders,Belgium",9069523,BE,City,Active
+1001273,Knokke-Heist,"Knokke-Heist,Flanders,Belgium",9069523,BE,City,Active
+1001274,Koksijde,"Koksijde,Flanders,Belgium",9069523,BE,City,Active
+1001275,Kortrijk,"Kortrijk,Flanders,Belgium",9069523,BE,City,Active
+1001276,Kuurne,"Kuurne,Flanders,Belgium",9069523,BE,City,Active
+1001277,Menen,"Menen,Flanders,Belgium",9069523,BE,City,Active
+1001278,Meulebeke,"Meulebeke,Flanders,Belgium",9069523,BE,City,Active
+1001281,Nieuwpoort,"Nieuwpoort,Flanders,Belgium",9069523,BE,City,Active
+1001282,Ostend,"Ostend,Flanders,Belgium",9069523,BE,City,Active
+1001283,Oostkamp,"Oostkamp,Flanders,Belgium",9069523,BE,City,Active
+1001286,Poperinge,"Poperinge,Flanders,Belgium",9069523,BE,City,Active
+1001287,Roeselare,"Roeselare,Flanders,Belgium",9069523,BE,City,Active
+1001292,Staden,"Staden,Flanders,Belgium",9069523,BE,City,Active
+1001293,Tielt,"Tielt,Flanders,Belgium",9069523,BE,City,Active
+1001294,Torhout,"Torhout,Flanders,Belgium",9069523,BE,City,Active
+1001297,Waregem,"Waregem,Flanders,Belgium",9069523,BE,City,Active
+1001298,Wervik,"Wervik,Flanders,Belgium",9069523,BE,City,Active
+1001300,Wevelgem,"Wevelgem,Flanders,Belgium",9069523,BE,City,Active
+1001301,Wielsbeke,"Wielsbeke,Flanders,Belgium",9069523,BE,City,Active
+1001302,Zedelgem,"Zedelgem,Flanders,Belgium",9069523,BE,City,Active
+1001304,Zwevegem,"Zwevegem,Flanders,Belgium",9069523,BE,City,Active
+1001305,Aartselaar,"Aartselaar,Flanders,Belgium",9069523,BE,City,Active
+1001307,Boortmeerbeek,"Boortmeerbeek,Flanders,Belgium",9069523,BE,City,Active
+1001308,Braine-l'Alleud,"Braine-l'Alleud,Walloon Region,Belgium",9069524,BE,City,Active
+1001310,Diest,"Diest,Flanders,Belgium",9069523,BE,City,Active
+1001313,Grez-Doiceau,"Grez-Doiceau,Walloon Region,Belgium",9069524,BE,City,Active
+1001314,Jodoigne,"Jodoigne,Walloon Region,Belgium",9069524,BE,City,Active
+1001315,Kampenhout,"Kampenhout,Flanders,Belgium",9069523,BE,City,Active
+1001316,La Hulpe,"La Hulpe,Walloon Region,Belgium",9069524,BE,City,Active
+1001317,Lasne,"Lasne,Walloon Region,Belgium",9069524,BE,City,Active
+1001319,Ottignies-Louvain-la-Neuve,"Ottignies-Louvain-la-Neuve,Walloon Region,Belgium",9069524,BE,City,Active
+1001321,Nivelles,"Nivelles,Walloon Region,Belgium",9069524,BE,City,Active
+1001326,Tubize,"Tubize,Walloon Region,Belgium",9069524,BE,City,Active
+1001327,Waterloo,"Waterloo,Walloon Region,Belgium",9069524,BE,City,Active
+1001329,Wavre,"Wavre,Walloon Region,Belgium",9069524,BE,City,Active
+1001330,Ath,"Ath,Walloon Region,Belgium",9069524,BE,City,Active
+1001332,Binche,"Binche,Walloon Region,Belgium",9069524,BE,City,Active
+1001333,Braine-le-Comte,"Braine-le-Comte,Walloon Region,Belgium",9069524,BE,City,Active
+1001334,Charleroi,"Charleroi,Walloon Region,Belgium",9069524,BE,City,Active
+1001337,Courcelles,"Courcelles,Walloon Region,Belgium",9069524,BE,City,Active
+1001342,Enghien,"Enghien,Walloon Region,Belgium",9069524,BE,City,Active
+1001343,Fleurus,"Fleurus,Walloon Region,Belgium",9069524,BE,City,Active
+1001344,Frameries,"Frameries,Walloon Region,Belgium",9069524,BE,City,Active
+1001355,La Louviere,"La Louviere,Walloon Region,Belgium",9069524,BE,City,Active
+1001356,Lessines,"Lessines,Walloon Region,Belgium",9069524,BE,City,Active
+1001360,Mons,"Mons,Walloon Region,Belgium",9069524,BE,City,Active
+1001361,Mouscron,"Mouscron,Walloon Region,Belgium",9069524,BE,City,Active
+1001363,Peruwelz,"Peruwelz,Walloon Region,Belgium",9069524,BE,City,Active
+1001366,Seneffe,"Seneffe,Walloon Region,Belgium",9069524,BE,City,Active
+1001367,Soignies,"Soignies,Walloon Region,Belgium",9069524,BE,City,Active
+1001370,Tournai,"Tournai,Walloon Region,Belgium",9069524,BE,City,Active
+1001379,Chaudfontaine,"Chaudfontaine,Walloon Region,Belgium",9069524,BE,City,Active
+1001382,Eupen,"Eupen,Walloon Region,Belgium",9069524,BE,City,Active
+1001385,Grace-Hollogne,"Grace-Hollogne,Walloon Region,Belgium",9069524,BE,City,Active
+1001386,Hannut,"Hannut,Walloon Region,Belgium",9069524,BE,City,Active
+1001389,Herstal,"Herstal,Walloon Region,Belgium",9069524,BE,City,Active
+1001390,Herve,"Herve,Walloon Region,Belgium",9069524,BE,City,Active
+1001392,Huy,"Huy,Walloon Region,Belgium",9069524,BE,City,Active
+1001393,Landen,"Landen,Flanders,Belgium",9069523,BE,City,Active
+1001394,Liege,"Liege,Liege,Walloon Region,Belgium",9069524,BE,City,Active
+1001400,Namur,"Namur,Walloon Region,Belgium",9069524,BE,City,Active
+1001404,Seraing,"Seraing,Walloon Region,Belgium",9069524,BE,City,Active
+1001408,Verviers,"Verviers,Walloon Region,Belgium",9069524,BE,City,Active
+1001409,Vise,"Vise,Walloon Region,Belgium",9069524,BE,City,Active
+1001413,Wanze,"Wanze,Walloon Region,Belgium",9069524,BE,City,Active
+1001414,Waremme,"Waremme,Walloon Region,Belgium",9069524,BE,City,Active
+1001418,Arlon,"Arlon,Walloon Region,Belgium",9069524,BE,City,Active
+1001421,Bastogne,"Bastogne,Walloon Region,Belgium",9069524,BE,City,Active
+1001426,Marche-en-Famenne,"Marche-en-Famenne,Walloon Region,Belgium",9069524,BE,City,Active
