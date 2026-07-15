@@ -1,7 +1,10 @@
 """
 Модуль запросов к XMLRiver API.
-Поддерживает мок-режим и реальные API Яндекса и Google.
-Работает в многопоточном режиме через ThreadPoolExecutor.
+
+Архитектура: один SERP — источник для всего. `fetch_serps()` тянет выдачу один
+раз на ключ+ПС+гео, парсит её в структуру {organic, features} и кэширует.
+Из готового SERP считаются: позиции, конкуренты, сниппеты, n-граммы, фичи —
+без повторных запросов. Ошибочные ответы в кэш НЕ попадают.
 """
 
 import os
@@ -13,134 +16,52 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
-from tqdm import tqdm
 
+import requests
+from tqdm import tqdm
 from dotenv import load_dotenv
 
-from cache import is_cache_valid
+from cache import serp_key, get_serp, put_serp, save_cache
+from serp_parse import parse_serp
+import pandas as pd
 
-# Загружаем config.env из папки скилла
-config_path = Path(__file__).parent.parent.parent / "configs" / "positions" / "config.env"
-load_dotenv(config_path)
+from text_miner import (
+    snippet_ngrams_wide, title_ngrams_wide, url_champions, _doc_highlights,
+)
+from clusterer import build_clusters, cluster_map, clusters_rows
+
+load_dotenv(Path(__file__).parents[2] / "configs" / "positions" / "config.env")
 
 XMLRIVER_YANDEX_URL = "https://xmlriver.com/yandex/xml"
 XMLRIVER_GOOGLE_URL = "https://xmlriver.com/search/xml"
 
-# Google: Moscow по умолчанию
-GOOGLE_LOC_DEFAULT = os.getenv("GOOGLE_LOC", "1011969")
+GOOGLE_LOC_DEFAULT = os.getenv("GOOGLE_LOC", "1011969")       # Москва (Criteria ID)
 GOOGLE_LR_DEFAULT = os.getenv("GOOGLE_LR", "ru")
+GOOGLE_COUNTRY_DEFAULT = os.getenv("GOOGLE_COUNTRY", "2643")  # Россия
+
+YANDEX_RETRIES = 3
+GOOGLE_RETRIES = 5
+GOOGLE_PAGES = 3            # страницы 1..3 (XMLRiver нумерует с 1)
+SAVE_EVERY = 20
 
 
-def fetch_positions(keywords, domain, region=213, engine="yandex", use_real=False, cache=None, max_workers=8, google_loc=None):
-    """
-    Проверяет позиции домена по списку ключей с использованием многопоточности.
-
-    Args:
-        keywords: список строк
-        domain: строка (например, "example.com" или "https://www.example.com/")
-        region: int (код региона Яндекса, 213 = Москва)
-        engine: "yandex" или "google"
-        use_real: bool (использовать реальный API)
-        cache: dict (кэш из cache.py)
-        max_workers: int, количество потоков (по умолчанию 8)
-
-    Returns:
-        список словарей [{"keyword": ..., "position": ..., "url": ..., "date": ...}]
-    """
-    if cache is None:
-        cache = {}
-
-    normalized_domain = _normalize_domain(domain)
-    cache_lock = threading.Lock()
-    results = [None] * len(keywords)
-
-    tasks = [
-        (i, keyword, normalized_domain, region, engine, use_real, cache, cache_lock, google_loc)
-        for i, keyword in enumerate(keywords)
-    ]
-
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = [executor.submit(_process_keyword, task) for task in tasks]
-        for future in tqdm(as_completed(futures), total=len(keywords), desc=f"Проверка позиций ({engine})"):
-            idx, result = future.result()
-            results[idx] = result
-
-    return results
-
-
-def _process_keyword(args):
-    """Обрабатывает один keyword: кэш -> запрос -> сохранение."""
-    idx, keyword, normalized_domain, region, engine, use_real, cache, cache_lock, google_loc = args
-    cache_key = f"{keyword}_{region}_{engine}_{normalized_domain}"
-
-    # Проверяем кэш
-    with cache_lock:
-        cached = cache.get(cache_key)
-    if cached and is_cache_valid(cached):
-        return idx, {
-            "keyword": keyword,
-            "position": cached["position"],
-            "url": cached.get("url", ""),
-            "date": cached["date"]
-        }
-
-    # Запрос позиции
-    if use_real:
-        position, found_url = _fetch_from_api(keyword, normalized_domain, region, engine, google_loc)
-    else:
-        position = _mock_position()
-        found_url = ""
-
-    result = {
-        "keyword": keyword,
-        "position": position,
-        "url": found_url,
-        "date": datetime.now().strftime("%Y-%m-%d")
-    }
-
-    # Сохраняем в кэш
-    with cache_lock:
-        cache[cache_key] = result
-
-    # Небольшая задержка, чтобы не перегружать API
-    time.sleep(0.1 if not use_real else 0.15)
-
-    return idx, result
-
-
-def _mock_position():
-    """Генерирует случайную позицию для тестирования (1-100)."""
-    return random.choice([0, 0, 3, 5, 7, 8, 10, 12, 15, 20, 35, 50, 65, 80, 95])
-
+# ============================ утилиты домена ============================
 
 def _normalize_domain(domain: str) -> str:
-    """Приводит домен к единому виду для сравнения.
-
-    Поддерживает как чистый домен (example.com, www.example.com),
-    так и полный URL (https://www.example.com/path).
-    """
     d = domain.strip().lower()
-
-    # Убираем протокол
     if d.startswith("http://"):
         d = d[7:]
     elif d.startswith("https://"):
         d = d[8:]
-
-    # Убираем путь, параметры, порт
     d = d.split("/")[0].split("?")[0].split("#")[0]
     if ":" in d:
         d = d.split(":")[0]
-
-    # Убираем www.
     if d.startswith("www."):
         d = d[4:]
-
     return d
 
 
 def _domain_matches(url: str, target: str) -> bool:
-    """Проверяет, что URL принадлежит целевому домену."""
     try:
         host = urlparse(url).netloc.lower()
         if host.startswith("www."):
@@ -150,333 +71,300 @@ def _domain_matches(url: str, target: str) -> bool:
         return False
 
 
-def _fetch_from_api(keyword, domain, region, engine, google_loc=None):
-    """
-    Реальный запрос к XMLRiver API.
-    Возвращает кортеж (позиция домена, найденный URL) — (0, "") если не найден.
-    """
-    if engine == "google":
-        return _fetch_google(keyword, domain, google_loc)
-    return _fetch_yandex(keyword, domain, region)
-
-
-def _fetch_yandex(keyword, domain, region):
-    """Запрос позиции в Яндексе через XMLRiver."""
-    import requests
-
+def _keys():
     user_id = os.getenv("XMLRIVER_USER_ID")
     api_key = os.getenv("XMLRIVER_API_KEY")
-
     if not user_id or not api_key:
         raise ValueError("Не заданы XMLRIVER_USER_ID или XMLRIVER_API_KEY в config.env")
+    return user_id, api_key
 
-    params = {
-        "user": user_id,
-        "key": api_key,
-        "query": keyword,
-        "lr": region,
-        "groupby": 100,  # ТОП-100 за один запрос
-    }
 
-    for attempt in range(3):
+# ============================ SERP: реальные запросы ============================
+# Возвращают структуру {organic, features} при успехе, None при сбое (не кэшируется).
+
+def _fetch_serp_yandex(keyword, region):
+    user_id, api_key = _keys()
+    params = {"user": user_id, "key": api_key, "query": keyword, "lr": region, "groupby": 100}
+    for attempt in range(YANDEX_RETRIES):
         try:
-            response = requests.get(XMLRIVER_YANDEX_URL, params=params, timeout=90)
-            response.raise_for_status()
-            return _parse_xml_for_position_and_url(response.content, domain)
+            resp = requests.get(XMLRIVER_YANDEX_URL, params=params, timeout=90)
+            resp.raise_for_status()
+            root = ET.fromstring(resp.content)
+            err = (root.find("response") or root).find("error")
+            if err is not None:
+                print(f"  [WARN] XMLRiver Яндекс '{keyword}': {err.get('code','?')} {(err.text or '').strip()}")
+                time.sleep(2 * (attempt + 1))
+                continue
+            return parse_serp(resp.content, "yandex")
         except requests.RequestException as e:
-            print(f"  [WARN] Ошибка запроса для '{keyword}' (попытка {attempt + 1}/3): {e}")
+            print(f"  [WARN] Сеть Яндекс '{keyword}' ({attempt + 1}/{YANDEX_RETRIES}): {e}")
             time.sleep(2 * (attempt + 1))
         except ET.ParseError as e:
-            print(f"  [WARN] Ошибка парсинга XML для '{keyword}': {e}")
-            return 0, ""
-    return 0, ""
+            print(f"  [WARN] XML Яндекс '{keyword}': {e}")
+            return None
+    return None
 
 
-def _fetch_google(keyword, domain, google_loc=None):
-    """Запрос позиции в Google через XMLRiver. Google отдаёт ~10 URL за страницу."""
-    import requests
+def _google_page(keyword, loc, country, page):
+    """Одна страница Google. Возвращает (content|None, ok). ok=False — фатальный сбой."""
+    user_id, api_key = _keys()
+    params = {
+        "user": user_id, "key": api_key, "query": keyword,
+        "loc": loc or GOOGLE_LOC_DEFAULT,
+        "country": country or GOOGLE_COUNTRY_DEFAULT,
+        "lr": GOOGLE_LR_DEFAULT,
+        "page": page,
+    }
+    for attempt in range(GOOGLE_RETRIES):
+        try:
+            resp = requests.get(XMLRIVER_GOOGLE_URL, params=params, timeout=20)
+            resp.raise_for_status()
+            if not resp.content.strip():
+                raise ET.ParseError("пустой ответ")
+            root = ET.fromstring(resp.content)
+            err = (root.find("response") or root).find("error")
+            if err is not None:
+                code = err.get("code", "?")
+                if code in ("500", "111", "32", "33"):
+                    time.sleep(1.5 * (attempt + 1))
+                    continue
+                print(f"  [WARN] XMLRiver Google '{keyword}' (page {page}): {code} {(err.text or '').strip()}")
+                return None, False
+            return resp.content, True
+        except requests.RequestException as e:
+            print(f"  [WARN] Сеть Google '{keyword}' page {page} ({attempt + 1}/{GOOGLE_RETRIES}): {e}")
+            time.sleep(1.5 * (attempt + 1))
+        except ET.ParseError as e:
+            print(f"  [WARN] XML Google '{keyword}' (page {page}): {e}")
+            return None, False
+    return None, False
 
-    user_id = os.getenv("XMLRIVER_USER_ID")
-    api_key = os.getenv("XMLRIVER_API_KEY")
 
-    if not user_id or not api_key:
-        raise ValueError("Не заданы XMLRIVER_USER_ID или XMLRIVER_API_KEY в config.env")
-
-    target_domain = _normalize_domain(domain)
-    collected = 0
-
-    # Ходим по страницам, пока не найдём домен или не соберём 30 результатов
-    for page in range(3):
-        params = {
-            "user": user_id,
-            "key": api_key,
-            "query": keyword,
-            "loc": google_loc if google_loc else GOOGLE_LOC_DEFAULT,
-            "lr": GOOGLE_LR_DEFAULT,
-            "page": page,
-        }
-
-        # Ретраи при временных ошибках XMLRiver (500, 111)
-        last_err = None
-        for attempt in range(2):
-            try:
-                response = requests.get(XMLRIVER_GOOGLE_URL, params=params, timeout=20)
-                response.raise_for_status()
-                if not response.content.strip():
-                    raise ET.ParseError("пустой ответ")
-                root = ET.fromstring(response.content)
-                response_el = root.find("response") or root
-                err = response_el.find("error")
-                if err is not None:
-                    code = err.get("code", "?")
-                    msg = (err.text or "").strip()
-                    last_err = f"{code} {msg}"
-                    if code in ("500", "111", "32", "33"):
-                        time.sleep(1.5 * (attempt + 1))
-                        continue
-                    print(f"  [WARN] XMLRiver Google ошибка для '{keyword}' (page {page}): {code} {msg}")
-                    return 0, ""
-                break
-            except requests.RequestException as e:
-                last_err = str(e)
-                time.sleep(1.5 * (attempt + 1))
-            except ET.ParseError as e:
-                print(f"  [WARN] Ошибка парсинга XML для '{keyword}' (page {page}): {e}")
-                return 0, ""
-        else:
-            print(f"  [WARN] XMLRiver Google ошибка для '{keyword}' (page {page}) после ретраев: {last_err}")
-            return 0, ""
-
-        groups = root.findall(".//group")
-        if not groups:
+def _fetch_serp_google(keyword, loc, country):
+    merged = {"organic": [], "features": {}}
+    for page in range(1, GOOGLE_PAGES + 1):
+        content, ok = _google_page(keyword, loc, country, page)
+        if not ok:
+            return None
+        if content is None:
             break
-
-        for group in groups:
-            for url_el in group.findall(".//url"):
-                url = (url_el.text or "").strip()
-                collected += 1
-                if _domain_matches(url, target_domain):
-                    return collected, url
-
-        if collected >= 30:
+        serp = parse_serp(content, "google")
+        if not serp["organic"]:
             break
-
-        time.sleep(0.5)
-
-    return 0, ""
-
-
-def _parse_xml_for_position_and_url(content, domain):
-    """Парсит XML ответ XMLRiver и ищет позицию домена + URL."""
-    try:
-        root = ET.fromstring(content)
-    except ET.ParseError as e:
-        print(f"  [WARN] Ошибка парсинга XML: {e}")
-        return 0, ""
-
-    response_el = root.find("response") or root
-    err = response_el.find("error")
-    if err is not None:
-        code = err.get("code", "?")
-        msg = (err.text or "").strip()
-        print(f"  [WARN] XMLRiver ошибка: {code} {msg}")
-        return 0, ""
-
-    target_domain = _normalize_domain(domain)
-
-    for i, group in enumerate(root.findall(".//group"), start=1):
-        for url_el in group.findall(".//url"):
-            url = (url_el.text or "").strip()
-            if _domain_matches(url, target_domain):
-                return i, url
-
-    return 0, ""
+        merged["organic"].extend(serp["organic"])
+        if page == 1:                       # фичи (related/PAA/KG) — на первой странице
+            merged["features"] = serp["features"]
+        time.sleep(0.3)
+    for i, o in enumerate(merged["organic"], start=1):   # сквозная нумерация
+        o["pos"] = i
+    return merged
 
 
-# =============================================================================
-# Сбор ТОП-N конкурентов (URLs из выдачи)
-# =============================================================================
+def _mock_serp(engine, mock_domain=None):
+    """Фейковый SERP для мок-режима (иногда содержит целевой домен)."""
+    hit = random.randint(1, 30) if (mock_domain and random.random() < 0.6) else -1
+    organic = []
+    for i in range(1, 31):
+        url = f"https://{mock_domain}/" if i == hit else f"https://example-{engine}-{i}.com/"
+        organic.append({
+            "pos": i, "url": url, "domain": _normalize_domain(url),
+            "title": f"Пример {i}: купить окна в москве недорого с установкой",
+            "snippet": "Компания продаёт пластиковые окна в москве по низкой цене с установкой и доставкой",
+            "highlights": ["окна", "москве"], "cache": "", "breadcrumbs": "",
+        })
+    return {"organic": organic, "features": {}}
 
 
-def fetch_competitors(keywords, region=213, engine="yandex", top_n=10, max_workers=8, use_real=False, google_loc=None):
-    """
-    Собирает ТОП-N URL из поисковой выдачи для каждого ключевого слова.
+# ============================ Оркестрация SERP ============================
 
-    Args:
-        keywords: список строк
-        region: int (код региона Яндекса, 213 = Москва)
-        engine: "yandex" или "google"
-        top_n: сколько URL собирать (по умолчанию 10)
-        max_workers: int, количество потоков
-        use_real: bool (использовать реальный API)
-
-    Returns:
-        список словарей [{"keyword": ..., "url_1": ..., "url_2": ..., ...}]
-    """
+def fetch_serps(keywords, engine="yandex", region=213, google_loc=None, google_country=None,
+                use_real=False, cache=None, max_workers=8, mock_domain=None):
+    """Тянет SERP по каждому ключу (с кэшем). Возвращает список (keyword, serp|None)."""
+    if cache is None:
+        cache = {}
+    geo = str(region) if engine == "yandex" \
+        else f"{google_loc or GOOGLE_LOC_DEFAULT}:{google_country or GOOGLE_COUNTRY_DEFAULT}"
+    lock = threading.Lock()
     results = [None] * len(keywords)
+    done = {"n": 0}
 
-    tasks = [
-        (i, keyword, region, engine, top_n, use_real, google_loc)
-        for i, keyword in enumerate(keywords)
-    ]
+    def work(i, keyword):
+        if not use_real:                    # мок не трогает кэш
+            time.sleep(0.02)
+            return i, keyword, _mock_serp(engine, mock_domain)
+
+        key = serp_key(keyword, geo, engine)
+        with lock:
+            cached = get_serp(cache, key)
+        if cached is not None:
+            return i, keyword, cached
+
+        serp = _fetch_serp_google(keyword, google_loc, google_country) if engine == "google" \
+            else _fetch_serp_yandex(keyword, region)
+
+        if serp is not None:
+            with lock:
+                put_serp(cache, key, serp)
+                done["n"] += 1
+                if done["n"] % SAVE_EVERY == 0:
+                    save_cache(cache)
+        time.sleep(0.15)
+        return i, keyword, serp
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = [executor.submit(_process_competitor, task) for task in tasks]
-        for future in tqdm(as_completed(futures), total=len(keywords), desc=f"Сбор конкурентов ({engine})"):
-            idx, result = future.result()
-            results[idx] = result
-
+        futures = [executor.submit(work, i, kw) for i, kw in enumerate(keywords)]
+        for future in tqdm(as_completed(futures), total=len(keywords), desc=f"SERP ({engine})"):
+            i, keyword, serp = future.result()
+            results[i] = (keyword, serp)
     return results
 
 
-def _process_competitor(args):
-    """Обрабатывает один keyword для сбора конкурентов."""
-    idx, keyword, region, engine, top_n, use_real, google_loc = args
+# ============================ Из SERP → таблицы ============================
 
-    if use_real:
-        if engine == "google":
-            urls = _fetch_competitors_google(keyword, top_n)
-        else:
-            urls = _fetch_competitors_yandex(keyword, region, top_n)
-    else:
-        urls = [f"https://example-competitor-{engine}-{i}.com/" for i in range(1, top_n + 1)]
-
-    result = {"keyword": keyword}
-    for i in range(1, top_n + 1):
-        result[f"url_{i}"] = urls[i - 1] if i <= len(urls) else ""
-
-    # Небольшая задержка, чтобы не перегружать API
-    time.sleep(0.1 if not use_real else 0.15)
-
-    return idx, result
-
-
-def _fetch_competitors_yandex(keyword, region, top_n):
-    """Собирает ТОП-N URL из Яндекса."""
-    import requests
-
-    user_id = os.getenv("XMLRIVER_USER_ID")
-    api_key = os.getenv("XMLRIVER_API_KEY")
-
-    if not user_id or not api_key:
-        raise ValueError("Не заданы XMLRIVER_USER_ID или XMLRIVER_API_KEY в config.env")
-
-    params = {
-        "user": user_id,
-        "key": api_key,
-        "query": keyword,
-        "lr": region,
-        "groupby": top_n,  # ТОП-N за один запрос
-    }
-
-    for attempt in range(3):
-        try:
-            response = requests.get(XMLRIVER_YANDEX_URL, params=params, timeout=90)
-            response.raise_for_status()
-            return _parse_xml_for_competitors(response.content, top_n)
-        except requests.RequestException as e:
-            print(f"  [WARN] Ошибка запроса конкурентов для '{keyword}' (попытка {attempt + 1}/3): {e}")
-            time.sleep(2 * (attempt + 1))
-        except ET.ParseError as e:
-            print(f"  [WARN] Ошибка парсинга XML для '{keyword}': {e}")
-            return []
-    return []
-
-
-def _fetch_competitors_google(keyword, top_n, google_loc=None):
-    """Собирает ТОП-N URL из Google."""
-    import requests
-
-    user_id = os.getenv("XMLRIVER_USER_ID")
-    api_key = os.getenv("XMLRIVER_API_KEY")
-
-    if not user_id or not api_key:
-        raise ValueError("Не заданы XMLRIVER_USER_ID или XMLRIVER_API_KEY в config.env")
-
-    urls = []
-    page = 0
-
-    while len(urls) < top_n and page < 3:
-        params = {
-            "user": user_id,
-            "key": api_key,
-            "query": keyword,
-            "loc": google_loc if google_loc else GOOGLE_LOC_DEFAULT,
-            "lr": GOOGLE_LR_DEFAULT,
-            "page": page,
-        }
-
-        last_err = None
-        for attempt in range(2):
-            try:
-                response = requests.get(XMLRIVER_GOOGLE_URL, params=params, timeout=20)
-                response.raise_for_status()
-                if not response.content.strip():
-                    raise ET.ParseError("пустой ответ")
-                root = ET.fromstring(response.content)
-                response_el = root.find("response") or root
-                err = response_el.find("error")
-                if err is not None:
-                    code = err.get("code", "?")
-                    msg = (err.text or "").strip()
-                    last_err = f"{code} {msg}"
-                    if code in ("500", "111", "32", "33"):
-                        time.sleep(1.5 * (attempt + 1))
-                        continue
-                    print(f"  [WARN] XMLRiver Google ошибка для '{keyword}' (page {page}): {code} {msg}")
-                    return urls
+def positions_from_serps(serps, domain):
+    """position: >0 — позиция, 0 — не найден, -1 — запрос не удался."""
+    target = _normalize_domain(domain)
+    today = datetime.now().strftime("%Y-%m-%d")
+    out = []
+    for keyword, serp in serps:
+        if serp is None:
+            out.append({"keyword": keyword, "position": -1, "url": "", "date": today})
+            continue
+        pos, found = 0, ""
+        for o in serp["organic"]:
+            if _domain_matches(o["url"], target):
+                pos, found = o["pos"], o["url"]
                 break
-            except requests.RequestException as e:
-                last_err = str(e)
-                time.sleep(1.5 * (attempt + 1))
-            except ET.ParseError as e:
-                print(f"  [WARN] Ошибка парсинга XML для '{keyword}' (page {page}): {e}")
-                return urls
-        else:
-            print(f"  [WARN] XMLRiver Google ошибка для '{keyword}' (page {page}) после ретраев: {last_err}")
-            return urls
-
-        groups = root.findall(".//group")
-        if not groups:
-            break
-
-        for group in groups:
-            for url_el in group.findall(".//url"):
-                url = (url_el.text or "").strip()
-                if url:
-                    urls.append(url)
-                if len(urls) >= top_n:
-                    return urls[:top_n]
-
-        page += 1
-        time.sleep(0.5)
-
-    return urls[:top_n]
+        out.append({"keyword": keyword, "position": pos, "url": found, "date": today})
+    return out
 
 
-def _parse_xml_for_competitors(content, top_n):
-    """Парсит XML ответ XMLRiver и извлекает ТОП-N URL."""
-    try:
-        root = ET.fromstring(content)
-    except ET.ParseError as e:
-        print(f"  [WARN] Ошибка парсинга XML: {e}")
-        return []
+def competitors_from_serps(serps, top_n=10):
+    out = []
+    for keyword, serp in serps:
+        row = {"keyword": keyword}
+        org = serp["organic"] if serp else []
+        for i in range(1, top_n + 1):
+            row[f"url_{i}"] = org[i - 1]["url"] if i <= len(org) else ""
+        out.append(row)
+    return out
 
-    response_el = root.find("response") or root
-    err = response_el.find("error")
-    if err is not None:
-        code = err.get("code", "?")
-        msg = (err.text or "").strip()
-        print(f"  [WARN] XMLRiver ошибка: {code} {msg}")
-        return []
 
-    urls = []
-    for group in root.findall(".//group"):
-        for url_el in group.findall(".//url"):
-            url = (url_el.text or "").strip()
-            if url:
-                urls.append(url)
-            if len(urls) >= top_n:
-                return urls[:top_n]
+def snippets_from_serps(serps, kw2cluster=None):
+    """Плоская таблица: cluster, keyword, pos, domain, url, title, highlights.
+    Подсветки: родные (Яндекс) или синтетические по словам запроса (Google)."""
+    kw2cluster = kw2cluster or {}
+    out = []
+    for keyword, serp in serps:
+        if not serp:
+            continue
+        for o in serp["organic"]:
+            out.append({
+                "cluster": kw2cluster.get(keyword, ""),
+                "keyword": keyword, "pos": o["pos"], "domain": _normalize_domain(o["url"]),
+                "url": o["url"], "title": o["title"],
+                "highlights": ", ".join(_doc_highlights(keyword, o)),
+            })
+    return out
 
-    return urls[:top_n]
+
+def clusters_from_serps(serps, method="middle", threshold=4, depth=20, url_map=None):
+    """Кластеризация по ТОПам. Возвращает (кластеры, {kw: вершина}, строки листа).
+    url_map: {keyword: url нашего сайта} — попадает в лист clusters_<engine>."""
+    clusters = build_clusters(serps, method=method, threshold=threshold, depth=depth)
+    return clusters, cluster_map(clusters), clusters_rows(clusters, url_map)
+
+
+def _by_cluster(serps, clusters, extract, build):
+    """Общий каркас: агрегат `build(extract(...))` отдельно по каждому кластеру,
+    результат — одна таблица с колонкой cluster (вершина кластера)."""
+    frames = []
+    for c in clusters:
+        member = set(c["keywords"])
+        items = [extract(o) for kw, s in serps if s and kw in member
+                 for o in s["organic"] if extract(o)]
+        df = build(items)
+        if len(df):
+            df.insert(0, "cluster", c["vertex"])
+            frames.append(df)
+    if not frames:
+        return pd.DataFrame()
+    return pd.concat(frames, ignore_index=True)
+
+
+def ngrams_from_serps(serps, clusters):
+    """n-граммы сниппетов (1/2/3, широкая раскладка) — внутри каждого кластера."""
+    return _by_cluster(serps, clusters,
+                       lambda o: o.get("snippet"), snippet_ngrams_wide)
+
+
+def title_freq_from_serps(serps, clusters):
+    """n-граммы по леммам title (1/2/3, широкая раскладка) — внутри каждого кластера."""
+    return _by_cluster(serps, clusters,
+                       lambda o: o.get("title"), title_ngrams_wide)
+
+
+def highlights_from_serps(serps, clusters):
+    """Подсветки, ранжированные внутри каждого кластера: cluster, highlight, freq.
+    Яндекс — родная разметка, Google — синтетика по словам запроса."""
+    from collections import Counter
+    rows = []
+    for c in clusters:
+        member = set(c["keywords"])
+        cnt = Counter()
+        for kw, s in serps:
+            if not s or kw not in member:
+                continue
+            for o in s["organic"]:
+                for w in _doc_highlights(kw, o):
+                    wl = w.strip().lower()
+                    if wl:
+                        cnt[wl] += 1
+        for w, f in cnt.most_common():
+            rows.append({"cluster": c["vertex"], "highlight": w, "freq": f})
+    return rows
+
+
+def url_champions_from_serps(serps_by_engine):
+    """url-чемпионы: частота url в ТОПе по всем ключам и ПС (глобальный список)."""
+    return url_champions(serps_by_engine)
+
+
+def url_champions_by_cluster(serps, clusters):
+    """url-чемпионы внутри каждого кластера: cluster, url, title, count."""
+    from collections import Counter
+    rows = []
+    for c in clusters:
+        member = set(c["keywords"])
+        cnt = Counter()
+        titles = {}
+        for kw, s in serps:
+            if not s or kw not in member:
+                continue
+            for o in s["organic"]:
+                u = (o.get("url") or "").strip()
+                if not u:
+                    continue
+                cnt[u] += 1
+                if u not in titles and o.get("title"):
+                    titles[u] = o["title"]
+        for u, n in cnt.most_common():
+            rows.append({"cluster": c["vertex"], "url": u,
+                         "title": titles.get(u, ""), "count": n})
+    return rows
+
+
+def features_from_serps(serps):
+    """Google-фичи в длинную таблицу: keyword, feature, value."""
+    out = []
+    for keyword, serp in serps:
+        if not serp:
+            continue
+        f = serp.get("features", {})
+        for q in f.get("related_searches", []):
+            out.append({"keyword": keyword, "feature": "related_search", "value": q})
+        for p in f.get("paa", []):
+            out.append({"keyword": keyword, "feature": "paa", "value": p["question"]})
+        for k, v in f.get("knowledge_graph", {}).items():
+            out.append({"keyword": keyword, "feature": f"knowledge:{k}", "value": v})
+    return out

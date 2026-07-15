@@ -3,4 +3,3 @@ pandas
 tqdm
 openpyxl
 python-dotenv
-pymorphy3

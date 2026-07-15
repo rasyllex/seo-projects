@@ -1,0 +1,42 @@
+{
+  "https://bashgaz02.ru/_google": {
+    "result": true,
+    "date": "2026-07-15"
+  },
+  "https://bashgaz02.ru/_yandex": {
+    "result": true,
+    "date": "2026-07-15"
+  },
+  "https://bashgaz02.ru/about/_google": {
+    "result": false,
+    "date": "2026-07-15"
+  },
+  "https://bashgaz02.ru/about/_yandex": {
+    "result": false,
+    "date": "2026-07-15"
+  },
+  "https://bashgaz02.ru/services/_google": {
+    "result": false,
+    "date": "2026-07-15"
+  },
+  "https://bashgaz02.ru/services/_yandex": {
+    "result": false,
+    "date": "2026-07-15"
+  },
+  "https://nad-golovoi.ru/_google": {
+    "result": true,
+    "date": "2026-07-15"
+  },
+  "https://nad-golovoi.ru/_yandex": {
+    "result": true,
+    "date": "2026-07-15"
+  },
+  "https://nad-golovoi.ru/catalog/_google": {
+    "result": true,
+    "date": "2026-07-15"
+  },
+  "https://nad-golovoi.ru/catalog/_yandex": {
+    "result": true,
+    "date": "2026-07-15"
+  }
+}

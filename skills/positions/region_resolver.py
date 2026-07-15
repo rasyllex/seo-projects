@@ -11,7 +11,13 @@ import difflib
 import re
 from pathlib import Path
 
-KNOWLEDGE_BASE = Path(__file__).parent.parent.parent / "knowledge_base" / "positions"
+KNOWLEDGE_BASE = Path(__file__).parents[2] / "knowledge_base" / "positions"
+
+# Страны, релевантные для рускоязычного SEO. Ограничиваем поиск городов ими,
+# иначе глобальный справочник даёт мусор (напр. «Москва» → «Moka», Маврикий).
+RELEVANT_COUNTRIES = {
+    "RU", "BY", "UA", "KZ", "UZ", "KG", "AZ", "AM", "GE", "MD", "TJ", "TM", "EE", "LV", "LT",
+}
 
 
 def _normalize(text):
@@ -107,18 +113,22 @@ def resolve_google(city_name):
     }
     queries = {q.strip() for q in queries if q.strip()}
 
+    # Города любой страны (раньше был жёсткий фильтр RU — из-за него
+    # Минск/Киев не резолвились и Google уходил в дефолтную страну).
     names = []
     rows = []
     with open(path, encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if row.get("Country Code") != "RU" or row.get("Target Type") != "City":
+            if row.get("Target Type") != "City" or row.get("Status") != "Active":
                 continue
-            if row.get("Status") != "Active":
+            if row.get("Country Code") not in RELEVANT_COUNTRIES:
                 continue
-            name = row["Name"].strip()
-            names.append(name.lower())
+            names.append(row["Name"].strip().lower())
             rows.append(row)
+
+    def _pack(row):
+        return (int(row["Criteria ID"]), row["Name"], row.get("Country Code", ""))
 
     # Сначала пробуем точное/подстроковое совпадение
     for i, name in enumerate(names):
@@ -126,28 +136,36 @@ def resolve_google(city_name):
         for q in queries:
             q_raw = q.replace("-", "").replace(" ", "")
             if q in name or q_raw in name_raw:
-                return [(int(rows[i]["Criteria ID"]), rows[i]["Name"])]
+                return [_pack(rows[i])]
 
-    # Fuzzy matching по всем городам России
+    # Fuzzy matching
     normalized_names = [n.replace("-", "").replace(" ", "") for n in names]
     close = []
     if base_no_hyphens:
         close = difflib.get_close_matches(base_no_hyphens, normalized_names, n=3, cutoff=0.75)
 
-    matches = []
+    seen = set()
+    unique = []
     for c in close:
         idx = normalized_names.index(c)
         cid = int(rows[idx]["Criteria ID"])
-        matches.append((cid, rows[idx]["Name"]))
-
-    # Убираем дубликаты
-    seen = set()
-    unique = []
-    for cid, name in matches:
         if cid not in seen:
             seen.add(cid)
-            unique.append((cid, name))
+            unique.append(_pack(rows[idx]))
     return unique
+
+
+def xmlriver_country_id(iso, default="2643"):
+    """ISO-код страны (RU/BY/UA...) -> XMLRiver country ID из google_countries.csv.
+    По умолчанию 2643 (Россия). Раньше по ошибке использовался 2036 = Австралия."""
+    if not iso:
+        return default
+    path = KNOWLEDGE_BASE / "google_countries.csv"
+    with open(path, encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f):
+            if (row.get("code") or "").upper() == iso.upper():
+                return row.get("id", default)
+    return default
 
 
 def resolve(city_name, engine="yandex"):
