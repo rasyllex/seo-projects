@@ -1,0 +1,4 @@
+# Не коммитить OAuth токен в Git
+.env
+*.env
+!.env.example
