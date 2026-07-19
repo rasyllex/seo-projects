@@ -1,0 +1,3 @@
+# Не коммитить прокси и ключи
+config.env
+proxies.txt
